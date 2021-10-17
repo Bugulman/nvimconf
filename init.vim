@@ -51,7 +51,9 @@ Plug 'wellle/targets.vim'                                           " Additional
 Plug 'matze/vim-move'                                               " Easily move lines
 Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'scrooloose/nerdtree'                                          " File tree
+"------------------=== GIt ===----------------------
 Plug 'airblade/vim-gitgutter'                                       " Track git changes
+Plug 'tpope/vim-fugitive'
 Plug 'hkupty/iron.nvim', { 'do': ':UpdateRemotePlugs' }           " Repls for various languages
 Plug 'Yggdroot/indentline'                                          " Visual indent lines
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -145,20 +147,6 @@ let g:indentLine_char = '¦'
 let g:indentLine_color_gui = '#073642'
 " subtle_light - cterm
 " let g:indentLine_color_term = 7
-"
-
-
-" << LSP >>
-
-let g:LanguageClient_autoStart = 1
-
-let g:LanguageClient_serverCommands = {
-    \ 'python': ['/usr/local/bin/pyls'],
-    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
-    \ 'go': ['go-langserver'] }
-
-" noremap <silent> H :call LanguageClient_textDocument_hover()<CR>
-" noremap <silent> Z :call LanguageClient_textDocument_definition()<CR>
 "
 
 " << IRON.VIM >>
