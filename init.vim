@@ -56,11 +56,14 @@ Plug 'airblade/vim-gitgutter'                                       " Track git 
 Plug 'tpope/vim-fugitive'
 Plug 'hkupty/iron.nvim', { 'do': ':UpdateRemotePlugs' }           " Repls for various languages
 Plug 'Yggdroot/indentline'                                          " Visual indent lines
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
 Plug 'Shougo/unite.vim'                       " Navigation between buffers and files
 Plug 'easymotion/vim-easymotion'
 
+"------------------=== FUZZY ===----------------------
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-lua/popup.nvim'
 "------------------=== Other ===----------------------
 Plug 'vim-airline/vim-airline'                " Lean & mean status/tabline for vim that's light as air
 Plug 'vim-airline/vim-airline-themes'         " Themes for vim-airline
@@ -81,10 +84,10 @@ Plug 'ncm2/ncm2-racer'                          " Rust
 Plug 'ncm2/ncm2-vim'
 
 " LSP
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+" Plug 'autozimu/LanguageClient-neovim', {
+"     \ 'branch': 'next',
+"     \ 'do': 'bash install.sh',
+"     \ }
 
 " enable ncm2 for all buffers
 augroup NCM
@@ -168,7 +171,7 @@ augroup PythonFMT
     autocmd BufWritePre *.py execute ':Black'
 augroup END
 
- let g:python_host_prog = 'c:/Users/reg16/soft/python36/python.exe'
+ " let g:python_host_prog = 'c:/Users/reg16/soft/python36/python.exe'
  let g:python3_host_prog = 'c:/Users/reg16/soft/python36/python.exe'
 
 " vim-python/python-syntax
@@ -189,8 +192,8 @@ let g:python_highlight_file_headers_as_comments = 1
 
 
 " pymode
-let g:pymode_python='python3'
-let g:pymode_paths = ['c:/Users/reg16/soft/python36']
+" let g:pymode_python='python3'
+" let g:pymode_paths = ['c:/Users/reg16/soft/python36']
 let g:pymode_trim_whitespaces = 1
 let g:pymode_indent = 1                     " PEP-8 compatible indent
 let g:pymode_options_colorcolumn = 0
@@ -208,7 +211,7 @@ let g:pymode_virtualenv = 1
 let g:NERDTreeShowLineNumbers = 1
 let g:NERDTreeWinPos = 'left'
 let g:NERDTreeShowBookmarks = 1
-map <leader>n :NERDTreeToggle<CR>
+map <C-n>  :NERDTreeToggle<CR>
 "
 
 
@@ -239,6 +242,7 @@ highlight ALEWarningSign guifg=grey ctermfg=grey
 let g:ale_echo_msg_error_str = 'E'
 let g:ale_echo_msg_warning_str = 'W'
 let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
+let g:ale_echo_msg_format = '[%linter%] %g [%severity%]'
 let g:move_key_modifier = 'N'
 let g:ale_lint_on_insert_leave = 1
 let g:ale_lint_on_text_changed = 'never'
@@ -306,6 +310,7 @@ set nobackup
 set nowritebackup         " no backup files
 set noswapfile          " no swap files
 set lazyredraw          " redraw onlw when needed
+set ignorecase          " redraw onlw when needed
 " set fillchars+=vert:\   " get rid of vert split '|' character
 " set smartindent       " like autoindent, but smarter about C -> deprecated
 "
@@ -338,6 +343,7 @@ inoreabbrev <expr> #!! "#!/usr/bin/env" . (empty(&filetype) ? '' : ' '.&filetype
 
 " quick subtitutions
 nnoremap <leader>s :%s/
+nnoremap <leader>i :%g/
 
 " Echo path current directory
 " nnoremap <silent> <F2> :lchdir %:p:h<CR>:pwd<CR>
@@ -407,18 +413,11 @@ map <leader>- :e $HOME/AppData/Local/nvim/init.vim<CR>
 " source init.vim
 map <silent> <F1> :source $HOME/AppData/Local/nvim/init.vim<CR>
 
-map <Leader><Space>,  <Plug>(easymotion-{motion}))
+map <leader><Space>,  <Plug>(easymotion-{motion}))
 
 " Unite settings
 nnoremap <F4> :Unite buffer<CR> " browse a list of the currently opened buffers
 let g:pymode_python = 'python3'
-
-" ConqueTerm
-nnoremap <F5> :ConqueTermSplit ipython<CR> " run python-scripts at <F5>
-nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR> " and debug-mode for <F6>
-let g:ConqueTerm_StartMessages = 0
-let g:ConqueTerm_CloseOnEnd = 0
-
 " ConqueTerm
 nnoremap <F5> :ConqueTermSplit ipython<CR> " run python-scripts at <F5>
 nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR> " and debug-mode for <F6>
@@ -576,3 +575,9 @@ if has("gui_running")
 else
     let g:airline_powerline_fonts = 0
 endif
+
+" Find files using Telescope command-line sugar.
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
