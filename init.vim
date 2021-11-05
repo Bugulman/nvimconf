@@ -36,7 +36,7 @@ let g:mapleader = ','
 "let g:mapleader = "\<Space>"
 set cursorline          " show cursorline
 set colorcolumn=80
-"
+set nocompatible
 
 
 " << PLUGINS >>
@@ -62,7 +62,8 @@ Plug 'easymotion/vim-easymotion'
 "------------------=== FUZZY ===----------------------
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
-Plug 'nvim-treesitter/nvim-treesitter'
+" Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'sheerun/vim-polyglot'                     "syntax
 Plug 'nvim-lua/popup.nvim'
 "------------------=== Other ===----------------------
 Plug 'vim-airline/vim-airline'                " Lean & mean status/tabline for vim that's light as air
@@ -103,6 +104,7 @@ Plug 'davidhalter/jedi-vim'                   " Awesome Python autocompletion wi
 Plug 'jmcantrell/vim-virtualenv'              " Virtualenv support in VIM
 Plug 'vimwiki/vimwiki'
 Plug 'tell-k/vim-autopep8'
+Plug 'bfredl/nvim-ipy'
 
 " Language Support
 Plug 'Shougo/neco-vim', { 'for': 'vim' }
@@ -419,8 +421,7 @@ map <leader><Space>,  <Plug>(easymotion-{motion}))
 nnoremap <F4> :Unite buffer<CR> " browse a list of the currently opened buffers
 let g:pymode_python = 'python3'
 " ConqueTerm
-nnoremap <F5> :ConqueTermSplit ipython<CR> " run python-scripts at <F5>
-nnoremap <F6> :exe "ConqueTermSplit ipython " . expand("%")<CR> " and debug-mode for <F6>
+nnoremap <F5> :ConqueTermSplit ipython3.exe<CR> " run python-scripts at <F5>
 let g:ConqueTerm_StartMessages = 0
 let g:ConqueTerm_CloseOnEnd = 0
 
@@ -576,7 +577,26 @@ else
     let g:airline_powerline_fonts = 0
 endif
 
+" options for ipython in vim
+" init.vim
+
+function! ConnectToPipenvKernel()
+  let l:kernel = system('echo "ipykernel_$(basename "$(pwd)")" | tr -d "\n"')
+  call IPyConnect('--kernel', l:kernel, '--no-window')
+endfunction
+
+command! -nargs=0 RunQtConsole call jobstart("jupyter qtconsole --JupyterWidget.include_other_output=True")
+
+let g:ipy_celldef = '^##' " regex for cell start and end
+
+nmap <silent> <leader>jqt :RunQtConsole<Enter>
+nmap <silent> <leader>jk :IPython<Space>--existing<Space>--no-window<Enter>
+nmap <silent> <leader>jc <Plug>(IPy-RunCell)
+nmap <silent> <C-S> <Plug>(IPy-Run)
+nmap <silent> <leader>ja <Plug>(IPy-RunAll)
+
 " Find files using Telescope command-line sugar.
+
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
