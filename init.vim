@@ -1,199 +1,141 @@
-"    .o oOOOOOOOo                                            0OOOo
-"    Ob.OOOOOOOo  OOOo.      oOOo.                      .adOOOOOOO
-"    OboO000000000000.OOo. .oOOOOOo.    OOOo.oOOOOOo..0000000000OO
-"    OOP.oOOOOOOOOOOO 0POOOOOOOOOOOo.   `0OOOOOOOOOP,OOOOOOOOOOOB'
-"    `O'OOOO'     `OOOOo"OOOOOOOOOOO` .adOOOOOOOOO"oOOO'    `OOOOo
-"    .OOOO'            `OOOOOOOOOOOOOOOOOOOOOOOOOO'            `OO
-"    OOOOO                 '"OOOOOOOOOOOOOOOO"`                oOO
-"   oOOOOOba.                .adOOOOOOOOOOba               .adOOOOo.
-"  oOOOOOOOOOOOOOba.    .adOOOOOOOOOO@^OOOOOOOba.     .adOOOOOOOOOOOO
-"  OOOOOOOOOOOOOOOOO.OOOOOOOOOOOOOO"`  '"OOOOOOOOOOOOO.OOOOOOOOOOOOOO
-"    :            .oO%OOOOOOOOOOo.OOOOOO.oOOOOOOOOOOOO?         .
-"    Y           'OOOOOOOOOOOOOO: .oOOo. :OOOOOOOOOOO?'         :`
-"    .            oOOP"%OOOOOOOOoOOOOOOO?oOOOOO?OOOO"OOo
-"                 '%o  OOOO"%OOOO%"%OOOOO"OOOOOO"OOO':
-"                      `$"  `OOOO' `O"Y ' `OOOO'  o             .
-"    .                  .     OP"          : o     .
-"
+""" Optixal's Neovim Init.vim
 
+""" Vim-Plug
+call plug#begin()
 
-" << STARTERS >>
+" Aesthetics - Main
+Plug 'dracula/vim', { 'as': 'dracula' }
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'bryanmylee/vim-colorscheme-icons'
+Plug 'mhinz/vim-startify'
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
+Plug 'junegunn/seoul256.vim'
+Plug 'junegunn/vim-journal'
+Plug 'junegunn/rainbow_parentheses.vim'
+Plug 'nightsense/forgotten'
+Plug 'zaki/zazen'
 
-filetype indent plugin on
-set encoding=utf-8
-scriptencoding utf-8
+" Aethetics - Additional
+Plug 'nightsense/nemo'
+Plug 'yuttie/hydrangea-vim'
+Plug 'chriskempson/tomorrow-theme', { 'rtp': 'vim' }
+Plug 'rhysd/vim-color-spring-night'
 
-if !exists('g:syntax_on')
-  syntax enable
-endif
-
-if has('termguicolors')
-    set termguicolors
-endif
-
-let g:mapleader = ','
-
-"let g:mapleader = "\<Space>"
-set cursorline          " show cursorline
-set colorcolumn=80
-set nocompatible
-
-
-" << PLUGINS >>
-
-call plug#begin('~/.local/share/nvim/plugged')
-
-Plug 'w0rp/ale'                                                     " Async Linting
-Plug 'tpope/vim-commentary'                   " Comment stuff out
-Plug 'Raimondi/delimitMate'                                         " Automatic delimiters
-Plug 'tpope/vim-surround'                                           " Operations around surrounding
-Plug 'wellle/targets.vim'                                           " Additional text objects
-Plug 'matze/vim-move'                                               " Easily move lines
-Plug 'python-mode/python-mode', { 'branch': 'develop' }
-Plug 'scrooloose/nerdtree'                                          " File tree
-"------------------=== GIt ===----------------------
-Plug 'airblade/vim-gitgutter'                                       " Track git changes
+" Functionalities
 Plug 'tpope/vim-fugitive'
-Plug 'hkupty/iron.nvim', { 'do': ':UpdateRemotePlugs' }           " Repls for various languages
-Plug 'Yggdroot/indentline'                                          " Visual indent lines
-Plug 'Shougo/unite.vim'                       " Navigation between buffers and files
-Plug 'easymotion/vim-easymotion'
-
-"------------------=== FUZZY ===----------------------
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-telescope/telescope.nvim'
-" Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'sheerun/vim-polyglot'                     "syntax
-Plug 'nvim-lua/popup.nvim'
-"------------------=== Other ===----------------------
-Plug 'vim-airline/vim-airline'                " Lean & mean status/tabline for vim that's light as air
-Plug 'vim-airline/vim-airline-themes'         " Themes for vim-airline
-Plug 'rosenfeld/conque-term'                  " Consoles as buffers
+Plug 'tpope/vim-sensible'
+Plug 'tpope/vim-surround'
+Plug 'majutsushi/tagbar'
+Plug 'preservim/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'ryanoasis/vim-devicons'
+Plug 'tpope/vim-commentary'                   " Comment stuff out
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'mhinz/vim-signify'
 Plug 'jiangmiao/auto-pairs'
-
+Plug 'junegunn/vim-easy-align'
+Plug 'alvan/vim-closetag'
+Plug 'tpope/vim-abolish'
+Plug 'Yggdroot/indentLine'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'chrisbra/Colorizer'
+Plug 'KabbAmine/vCoolor.vim'
+Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
+Plug 'vim-scripts/loremipsum'
+Plug 'metakirby5/codi.vim'
+Plug 'dkarter/bullets.vim'
+Plug 'psliwka/vim-smoothie'
+Plug 'antoinemadec/FixCursorHold.nvim'
+Plug 'wellle/context.vim'
+Plug 'easymotion/vim-easymotion'
 "--------------=== Snippets support ===---------------
 Plug 'SirVer/ultisnips'                    " Snippets manager
 Plug 'honza/vim-snippets'                     " Snippets repo
 
-
-
-" NCM2
-Plug 'roxma/nvim-yarp'
-Plug 'ncm2/ncm2'
-Plug 'ncm2/ncm2-jedi'                           " Python
-Plug 'ncm2/ncm2-racer'                          " Rust
-Plug 'ncm2/ncm2-vim'
-
-" LSP
-" Plug 'autozimu/LanguageClient-neovim', {
-"     \ 'branch': 'next',
-"     \ 'do': 'bash install.sh',
-"     \ }
-
-" enable ncm2 for all buffers
-augroup NCM
-    autocmd!
-    autocmd BufEnter * call ncm2#enable_for_buffer()
-augroup END
-
-" enable popupopen
-set completeopt=noinsert,menuone,noselect
-
-" --- Python ---
-Plug 'davidhalter/jedi-vim'                   " Awesome Python autocompletion with VIM
+"--------------===Python languages ===---------------
+Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'jmcantrell/vim-virtualenv'              " Virtualenv support in VIM
 Plug 'vimwiki/vimwiki'
 Plug 'tell-k/vim-autopep8'
 Plug 'bfredl/nvim-ipy'
 
-" Language Support
-Plug 'Shougo/neco-vim', { 'for': 'vim' }
-Plug 'plasticboy/vim-markdown'
-Plug 'vim-python/python-syntax', { 'for': 'python' }
-Plug 'ambv/black'
-" Plug 'gaalcaras/ncm-R'                                              " R auto-completion
 
-" colorschemes
-Plug 'kadekillary/subtle_solo'
+
+" Entertainment
+Plug 'dansomething/vim-hackernews'
 
 call plug#end()
-"
-
-" << COLORSCHEMES >>
-set background=dark
-
-colorscheme subtle_dark
-"
-
-" << STATUSLINE >>
-
-set laststatus=2
-set statusline=
-set statusline+=\ %F
-set statusline+=\ %m
-"
-
-" << NETRW >>
-
-let g:netrw_liststyle = 3                                        " Tree style
-let g:netrw_banner = 0                                           " No banner
-let g:netrw_browse_split = 1
-let g:netrw_winsize = 20
-let g:netrw_altv = 1
-"
 
 
-" << INDENT LINE >>
+""" Main Configurations
+filetype plugin indent on
+set tabstop=4 softtabstop=4 shiftwidth=4 expandtab smarttab autoindent
+set incsearch ignorecase smartcase hlsearch
+set wildmode=longest,list,full wildmenu
+set ruler laststatus=2 showcmd showmode
+set list listchars=trail:»,tab:»-
+set fillchars+=vert:\ 
+set wrap breakindent
+set encoding=utf-8
+set textwidth=0
+set hidden
+set number
+set title
 
-let g:indentLine_char = '¦'
-" subtle_light
-" let g:indentLine_color_gui = '#eee8d5'
-" subtle_dark
-let g:indentLine_color_gui = '#073642'
-" subtle_light - cterm
-" let g:indentLine_color_term = 7
-"
+""" Coloring
 
-" << IRON.VIM >>
+" Functions and autocmds to run whenever changing colorschemes
+function! TransparentBackground()
+    highlight Normal guibg=NONE ctermbg=NONE
+    highlight LineNr guibg=NONE ctermbg=NONE
+    set fillchars+=vert:\│
+    highlight VertSplit gui=NONE guibg=NONE guifg=#444444 cterm=NONE ctermbg=NONE ctermfg=gray
+endfunction
 
-nnoremap <leader>ir :IronRepl<CR>
+function! DraculaPMenu()
+    highlight Pmenu guibg=#363948
+    highlight PmenuSbar guibg=#363948
+endfunction
 
-let g:iron_repl_open_cmd = 'vsplit'
-let g:iron_map_defaults = 0
-
-nmap + <S-v><Plug>(iron-send-motion)
-vmap + <Plug>(iron-send-motion)
-nmap rr <Plug>(iron-repeat-cmd)
-"
-
-" << PYTHON >>
-
-augroup PythonFMT
+augroup MyColors
     autocmd!
-    autocmd BufWritePre *.py execute ':Black'
+    autocmd ColorScheme dracula call DraculaPMenu()
+    "autocmd ColorScheme * call TransparentBackground() " uncomment if you are using a translucent terminal and you want nvim to use that
 augroup END
 
- " let g:python_host_prog = 'c:/Users/reg16/soft/python36/python.exe'
- let g:python3_host_prog = 'c:/Users/reg16/soft/python36/python.exe'
+" Main Coloring Configurations
+syntax on
+color dracula
 
-" vim-python/python-syntax
-let g:python_highlight_builtins = 1
-let g:python_highlight_builtin_objs = 1
-let g:python_highlight_builtin_funcs = 1
-let g:python_highlight_builtin_funcs_kwarg = 1
-let g:python_highlight_exceptions = 1
-let g:python_highlight_string_formatting = 1
-let g:python_highlight_string_format = 1
-let g:python_highlight_string_templates = 1
-let g:python_highlight_indent_errors = 1
-let g:python_highlight_space_errors = 1
-let g:python_highlight_doctests = 1
-let g:python_highlight_class_vars = 1
-let g:python_highlight_operators = 1
-let g:python_highlight_file_headers_as_comments = 1
+" Enable True Color Support (ensure you're using a 256-color enabled $TERM, e.g. xterm-256color)
+set termguicolors
 
+""" Plugin Configurations
+
+" NERDTree
+let NERDTreeShowHidden=1
+" Exit Vim if NERDTree is the only window left.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
+
+" Airline
+let g:airline_powerline_fonts = 1
+let g:airline_section_z = ' %{strftime("%-I:%M %p")}'
+let g:airline_section_warning = ''
+"let g:airline#extensions#tabline#enabled = 1 " Uncomment to display buffer tabline above
+
+" Neovim :Terminal
+tmap <Esc> <C-\><C-n>
+tmap <C-w> <Esc><C-w>
+"tmap <C-d> <Esc>:q<CR>
+autocmd BufWinEnter,WinEnter term://* startinsert
+autocmd BufLeave term://* stopinsert
 
 " pymode
+let g:pymode_python = 'python3'
 " let g:pymode_python='python3'
 " let g:pymode_paths = ['c:/Users/reg16/soft/python36']
 let g:pymode_trim_whitespaces = 1
@@ -204,164 +146,297 @@ let g:pymode_lint_on_write = 0
 let g:pymode_rope = 0
 let g:pymode_rope_complete_on_dot = 0
 let g:pymode_virtualenv = 1
-"
+" отключаем автокомплит по коду (у нас вместо него используется jedi-vim)
+let g:pymode_rope = 0
+let g:pymode_rope_completion = 0
+let g:pymode_rope_complete_on_dot = 0
 
+" документация
+let g:pymode_doc = 0
+let g:pymode_doc_key = 'K'
+" проверка кода
+let g:pymode_lint = 1
+let g:pymode_lint_checker = "pyflakes,pep8"
+let g:pymode_lint_ignore="E501,W601,C0110"
+" провека кода после сохранения
+let g:pymode_lint_write = 1
 
-" << NERDTREE >>
+" поддержка virtualenv
+let g:pymode_virtualenv = 1
 
-" let g:NerdTreeCascadeSingleChildDir = 0
-let g:NERDTreeShowLineNumbers = 1
-let g:NERDTreeWinPos = 'left'
-let g:NERDTreeShowBookmarks = 1
-map <C-n>  :NERDTreeToggle<CR>
-"
+" установка breakpoints
+let g:pymode_breakpoint = 1
+let g:pymode_breakpoint_key = '<leader>b'
 
+" подстветка синтаксиса
+let g:pymode_syntax = 0
+let g:pymode_syntax_all = 0
+let g:pymode_syntax_indent_errors = g:pymode_syntax_all
+let g:pymode_syntax_space_errors = g:pymode_syntax_all
 
-" << FILETYPE >>
+" отключить autofold по коду
+let g:pymode_folding = 0
 
-augroup FileOptions
-  autocmd!
-  " indentation
-  " (for comments moving to BOL): https://stackoverflow.com/questions/2063175/comments-go-to-start-of-line-in-the-insert-mode-in-vim
-  autocmd Filetype python setlocal sts=4 sw=4 wrap
-  " autocmd Filetype r setlocal ts=2 sw=2 sts=2 expandtab
-  autocmd Filetype r setlocal ts=2 sw=2
-  autocmd BufRead,BufNewFile *.md set wrap
-  autocmd Filetype javascript setlocal ts=2 sw=2 sts=2 syntax=javascript
-  " https://calebthompson.io/crontab-and-vim-sitting-in-a-tree
-  autocmd Filetype crontab setlocal nobackup nowritebackup
-augroup END
-"
-
-
-" << ALE >>
-
-let g:ale_enabled = 1
-let g:ale_sign_error = '✖︎'
-highlight ALEErrorSign guifg=red ctermfg=red
-let g:ale_sign_warning = '✔︎'
-highlight ALEWarningSign guifg=grey ctermfg=grey
-let g:ale_echo_msg_error_str = 'E'
-let g:ale_echo_msg_warning_str = 'W'
-let g:ale_echo_msg_format = '[%linter%] %s [%severity%]'
-let g:ale_echo_msg_format = '[%linter%] %g [%severity%]'
-let g:move_key_modifier = 'N'
-let g:ale_lint_on_insert_leave = 1
-let g:ale_lint_on_text_changed = 'never'
-let g:ale_lint_on_enter = 1
-let g:ale_lint_on_save = 1
-" let g:ale_sign_column_always = 1                " ale enabled
-"
-
-
-" << FOLDING >>
-
-augroup Folding
-  autocmd!
-  autocmd BufRead * setlocal foldmethod=marker    " using   fold method
-  autocmd BufRead * normal zM
-augroup END
-"
-
-
-" << BASICS >>
-
-if exists('&inccommand')
-    set inccommand=split " (neovim) specific, live substitutin preview
+" возможность запускать код
+let g:pymode_run = 1
+" Other options
+let g:pymode_options_colorcolumn = 0
+if has("gui_running")
+    let g:airline_powerline_fonts = 1
+else
+    let g:airline_powerline_fonts = 0
 endif
 
-" Keep the bottom clean / clear
-set noruler             " turn off line, column numbers
-set noshowmode          " don't show current mode
-set noshowcmd           " don't show command
-
-" Always go right
-set splitright
-
-set nowrap              " don't wrap lines
-set t_Co=256
-set history=100         " lines of history VIM remembers
-set guicursor=a:blinkon0      " disable cursor blink
-set autochdir           " change working directory to current file
-set shortmess=a         " get ride of annoying Enter/command prompt
-set cmdheight=1         " height of command bar
-set smarttab
-set tabstop=4           " tab is four spaces
-set softtabstop=4       " tab removed like spaces
-set shiftwidth=4        "  number of spaces for autoindenting
-set expandtab           " spaces instead of tab characters
-set shiftround
-set autoindent
-set autochdir           " change current dir to file in viewed buffer
-set scrolloff=5         " lines after/before cursor on scroll
-set breakindent         " long lines will wrap with indentation
-set showbreak=\\\\\     " wrap lines with indentation
-set backspace=indent,eol,start " allow backspacing in insert mode
-set infercase           " smarter completions that will be case aware
-set smartcase           " ignore case if search pattern all lowercase
-set autowrite           " save on buffer switch
-set showmatch           " highlight matching [{()}]
-set incsearch           " search characters as enetered
-set hlsearch            " highlight matches
-set foldenable          " enable folding
-set mouse=a             " enable mouse
-set hidden              " buffers exist without windows
-set number              " show line number
-set relativenumber      " show relative line number set nobackup            " take care of backup files
-set nobackup
-set nowritebackup         " no backup files
-set noswapfile          " no swap files
-set lazyredraw          " redraw onlw when needed
-set ignorecase          " redraw onlw when needed
-" set fillchars+=vert:\   " get rid of vert split '|' character
-" set smartindent       " like autoindent, but smarter about C -> deprecated
 "
+" vim-pydocstring
+"let g:pydocstring_doq_path = '~/.config/nvim/env/bin/doq'
 
+" Supertab
+let g:SuperTabDefaultCompletionType = "<C-n>"
 
-" << TEMPLATES >>
+" EasyAlign
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
 
-augroup FileTemplates
-    autocmd!
-    autocmd BufNewFile *.sh 0r ~/.config/nvim/templates/sh.skeleton
-    autocmd BufNewFile *.py 0r ~/.config/nvim/templates/py.skeleton
-augroup END
-"
-
-
-
-" << KEY MAPPINGS >>
-
-" markdown - no conceal
+" indentLine
+let g:indentLine_char = '▏'
+let g:indentLine_defaultGroup = 'NonText'
+" Disable indentLine from concealing json and markdown syntax (e.g. ```)
+let g:vim_json_syntax_conceal = 0
 let g:vim_markdown_conceal = 0
+let g:vim_markdown_conceal_code_blocks = 0
 
-" Vim Move <CTRL> binding
-let g:move_key_modifier = 'C'
+" TagBar
+let g:tagbar_width = 30
 
-" <TAB> to select from popup menu
-inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+" fzf-vim
+let g:fzf_action = {
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-s': 'split',
+  \ 'ctrl-v': 'vsplit' }
+let g:fzf_colors =
+\ { 'fg':      ['fg', 'Normal'],
+  \ 'bg':      ['bg', 'Normal'],
+  \ 'hl':      ['fg', 'Comment'],
+  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
+  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
+  \ 'hl+':     ['fg', 'Statement'],
+  \ 'info':    ['fg', 'Type'],
+  \ 'border':  ['fg', 'Constant'],
+  \ 'prompt':  ['fg', 'Character'],
+  \ 'pointer': ['fg', 'Exception'],
+  \ 'marker':  ['fg', 'Keyword'],
+  \ 'spinner': ['fg', 'Label'],
+  \ 'header':  ['fg', 'Comment'] }
 
-" Auto-insert shebangs
-inoreabbrev <expr> #!! "#!/usr/bin/env" . (empty(&filetype) ? '' : ' '.&filetype)
+" Bat theme for syntax coloring when viewing files in fzf
+let $BAT_THEME='base16'
+
+" Limelight
+let g:limelight_conceal_ctermfg = 'gray'
+let g:limelight_conceal_guifg = 'gray'
+
+" Startify
+let g:startify_fortune_use_unicode = 1
+
+" Startify + NERDTree on start when no file is specified
+autocmd VimEnter *
+    \   if !argc()
+    \ |   Startify
+    \ |   NERDTree
+    \ |   wincmd w
+    \ | endif
+
+" coc.vim START
+
+" Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
+" delays and poor user experience.
+set updatetime=300
+
+" Don't pass messages to |ins-completion-menu|.
+set shortmess+=c
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved.
+if has("nvim-0.5.0") || has("patch-8.1.1564")
+  " Recently vim can merge signcolumn and number column into one
+  set signcolumn=number
+else
+  set signcolumn=yes
+endif
+
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<TAB>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
+
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~# '\s'
+endfunction
+
+" Use <c-space> to trigger completion.
+if has('nvim')
+  inoremap <silent><expr> <c-space> coc#refresh()
+else
+  inoremap <silent><expr> <c-@> coc#refresh()
+endif
+
+" Make <CR> auto-select the first completion item and notify coc.nvim to
+" format on enter, <cr> could be remapped by other vim plugin
+inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+
+" Use `[g` and `]g` to navigate diagnostics
+" Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
+nmap <silent> [g <Plug>(coc-diagnostic-prev)
+nmap <silent> ]g <Plug>(coc-diagnostic-next)
+
+" GoTo code navigation.
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definition)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
+
+" Use K to show documentation in preview window.
+nnoremap <silent> D :call <SID>show_documentation()<CR>
+
+function! s:show_documentation()
+  if (index(['vim','help'], &filetype) >= 0)
+    execute 'h '.expand('<cword>')
+  elseif (coc#rpc#ready())
+    call CocActionAsync('doHover')
+  else
+    execute '!' . &keywordprg . " " . expand('<cword>')
+  endif
+endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
+" Symbol renaming.
+nmap <leader>rn <Plug>(coc-rename)
+
+" Formatting selected code.
+xmap <leader>f  <Plug>(coc-format-selected)
+nmap <leader>f  <Plug>(coc-format-selected)
+
+augroup mygroup
+  autocmd!
+  " Setup formatexpr specified filetype(s).
+  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+  " Update signature help on jump placeholder.
+  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+augroup end
+
+" coc.vim END
+
+" signify
+let g:signify_sign_add = '│'
+let g:signify_sign_delete = '│'
+let g:signify_sign_change = '│'
+hi DiffDelete guifg=#ff5555 guibg=none
+
+" FixCursorHold for better performance
+let g:cursorhold_updatetime = 100
+
+" context.vim
+let g:context_nvim_no_redraw =1
+
+""" Filetype-Specific Configurations
+
+" HTML, XML, Jinja
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType xml setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType htmldjango inoremap {{ {{  }}<left><left><left>
+autocmd FileType htmldjango inoremap {% {%  %}<left><left><left>
+autocmd FileType htmldjango inoremap {# {#  #}<left><left><left>
+
+" Markdown and Journal
+autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType journal setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
+""" Custom Functions
+
+" Trim Whitespaces
+function! TrimWhitespace()
+    let l:save = winsaveview()
+    %s/\\\@<!\s\+$//e
+    call winrestview(l:save)
+endfunction
+
+" Dracula Mode (Dark)
+function! ColorDracula()
+    let g:airline_theme='dracula'
+    color dracula
+endfunction
+
+" Seoul256 Mode (Dark & Light)
+function! ColorSeoul256()
+    let g:airline_theme='silver'
+    color seoul256
+endfunction
+
+" Forgotten Mode (Light)
+function! ColorForgotten()
+    " Other light airline themes: tomorrow, silver, alduin
+    let g:airline_theme='tomorrow'
+    " Other light colors: forgotten-light, nemo-light
+    color forgotten-light
+endfunction
+
+" Zazen Mode (Black & White)
+function! ColorZazen()
+    let g:airline_theme='minimalist'
+    color zazen
+endfunction
+
+""" Custom Mappings
+
+let mapleader=","
+nmap <leader>$s <C-w>s<C-w>j:terminal<CR>:set nonumber<CR><S-a>
+nmap <leader>$v <C-w>v<C-w>l:terminal<CR>:set nonumber<CR><S-a>
+nmap <C-n> :NERDTreeToggle<CR>
+nmap \\ <leader>q
+nmap <leader>w :TagbarToggle<CR>
+nmap \| <leader>w
+nmap <leader>ee :Colors<CR>
+nmap <leader>ea :AirlineTheme 
+nmap <leader>e1 :call ColorDracula()<CR>
+nmap <leader>e2 :call ColorSeoul256()<CR>
+nmap <leader>e3 :call ColorForgotten()<CR>
+nmap <leader>e4 :call ColorZazen()<CR>
+nmap <leader>r :so ~/.config/nvim/init.vim<CR>
+nmap <leader>t :call TrimWhitespace()<CR>
+nmap <leader>y <C-w>v<C-w>l:HackerNews best<CR>J
+nmap <leader>p <Plug>(pydocstring)
+xmap <leader>a gaip*
+nmap <leader>a gaip*
+nmap <leader>gf :Rg<CR>
+nmap <leader>d :Files<CR>
+nmap <leader>f :BLines<CR>
+nmap <leader>g :Goyo<CR>
+nmap <leader>h :RainbowParentheses!!<CR>
+nmap <leader>j :set filetype=journal<CR>
+nmap <leader>k :ColorToggle<CR>
+nmap <leader>l :Limelight!!<CR>
+xmap <leader>l :Limelight!!<CR>
+autocmd FileType python nmap <leader>x :0,$!~/.config/nvim/env/bin/python -m yapf<CR>
+nmap <silent> <leader><Space> :noh<CR>
+nmap <Tab> :bnext<CR>
+nmap <S-Tab> :bprevious<CR>
+" nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
+" nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
 
 " quick subtitutions
 nnoremap <leader>s :%s/
 nnoremap <leader>i :%g/
-
-" Echo path current directory
-" nnoremap <silent> <F2> :lchdir %:p:h<CR>:pwd<CR>
-
-" Remove search highlighting
-nnoremap <silent> <BS> :nohlsearch<CR>
-
-" Dumb - just use 0
-" nnoremap H ^
-
-" Quote words under cursor
-nnoremap <leader>" viW<esc>a"<esc>gvo<esc>i"<esc>gvo<esc>3l
-nnoremap <leader>' viW<esc>a'<esc>gvo<esc>i'<esc>gvo<esc>3l
-
-" <Leader>T = Delete all Trailing space in file
-nnoremap <Leader>t :%s/\s\+$//<CR>:let @/=''<CR>:nohlsearch<CR>
 
 " fast saves
 nnoremap <leader>w :w!<CR>
@@ -390,24 +465,6 @@ nnoremap <leader>bn :bn<CR>
 " previous buffer
 nnoremap <leader>bp :bp<CR>
 
-" ignite Dash search
-nmap <silent> <leader>d <Plug>DashSearch<CR>
-
-" cursor only in active window
-"augroup Cursoractive
-    "au!
-    "autocmd VimEnter, WinEnter, BufWinEnter * set local cursorline
-    "autocmd WinLeave * setlocal nocursorline
-"augroup END
-
-" automatic resized windows
-augroup on_vim_resized
-    autocmd!
-    autocmd VimResized * wincmd =
-augroup END
-
-" execute shell commands in buffer
-nnoremap Q !!$SHELL <CR>
 
 " init.vim editing
 map <leader>- :e $HOME/AppData/Local/nvim/init.vim<CR>
@@ -415,82 +472,15 @@ map <leader>- :e $HOME/AppData/Local/nvim/init.vim<CR>
 " source init.vim
 map <silent> <F1> :source $HOME/AppData/Local/nvim/init.vim<CR>
 
-map <leader><Space>,  <Plug>(easymotion-{motion}))
+map <leader> <Plug>(easymotion-{motion}))
 
 " Unite settings
 nnoremap <F4> :Unite buffer<CR> " browse a list of the currently opened buffers
-let g:pymode_python = 'python3'
 " ConqueTerm
 nnoremap <F5> :ConqueTermSplit ipython3.exe<CR> " run python-scripts at <F5>
 let g:ConqueTerm_StartMessages = 0
 let g:ConqueTerm_CloseOnEnd = 0
 
-
-"=====================================================
-" User hotkeys
-"=====================================================
-" vnoremap <BS> d
-
-" " CTRL-Z is Undo
-" noremap <C-z> u
-" inoremap <C-z> <C-O>u
-
-" " CTRL-Y is Redo
-" noremap <C-y> <C-R> 
-" inoremap <C-y> <C-O><C-R>
-
-" " CTRL-A is Select all
-" noremap <C-a> gggH<C-O>G
-" inoremap <C-a> <C-O>gg<C-O>gH<C-O>G
-" cnoremap <C-a> <C-C>gggH<C-O>G
-" onoremap <C-a> <C-C>gggH<C-O>G
-" snoremap <C-a> <C-C>gggH<C-O>G
-" xnoremap <C-a> <C-C>ggVG
-
-" " CTRL-S is Quicksave command
-" noremap <C-s> :update<CR>
-" vnoremap <C-s> <C-C>:update<CR>
-" inoremap <C-s> <C-O>:update<CR>
-
-" " CTRL-X and SHIFT-Del are Cut
-" vnoremap <C-X> "+x
-" vnoremap <S-Del> "+x
-
-" " CTRL-C and CTRL-Insert are Copy
- vnoremap <C-C> "+y
- vnoremap <y-y> "+yy
- vnoremap <C-Insert> "+y
-
-" " CTRL-V and SHIFT-Insert are Paste
-map <C-V>       "+gP
-map <p>       "+gP
-map <S-Insert>      "+gP
-cmap <C-V>      <C-R>+
-cmap <S-Insert>     <C-R>+
-
-
-" " Settings for buffers
-" map <C-q> :bd!<CR>          " close current buffer, CTRL-q
-" noremap <C-Right> :bn<CR>  " move to next buffer, CTRL-Right
-" noremap <C-Left> :bp<CR>   " move to previous buffer, CTRL-Left
-
-" " Easier split navigations
-" nnoremap <silent> <C-j> <c-w>h  " move to the right subwindows, CTRL-j
-" nnoremap <silent> <C-l> <c-w>l  " move to the upper subwindow, CTRL-i
-" nnoremap <silent> <C-i> <c-w>k  " move to the lower subwindow, CTRL-k
-" nnoremap <silent> <C-k> <c-w>j  " move to the left subwindow, CTRL-l
-
-" " Split managment
-" map <silent> <A-s> :split<CR>   " Split horizontal, ALT-s
-" map <silent> <A-v> :vsplit<CR>  " Split vertical, ALV-v
-
-" " Easier change size for splitted window
-" map <silent> <A-j> <C-w>>  " Increase size of the vertical split, ALT-j
-" map <silent> <A-i> <C-W>+  " Increase size of the horizontal split, ALT-i
-" map <silent> <A-k> <C-W>-  " Decrease size of the horizontal split, ALT-k
-" map <silent> <A-l> <C-w><  " Decrease size of the vertical split, ALT-l
-
-" " Activate autocomplete at <Ctrl+Space>
 " SnipMate settings
 let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/bundle/vim-snippets/UltiSnips']
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
@@ -498,84 +488,6 @@ let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
-" NERDTree
-
-" Unite settings
-" nnoremap <F4> :Unite buffer<CR> " browse a list of the currently opened buffers
-
-" Jedi-vim
-let g:jedi#show_call_signatures = 1 " show call signatures
-let g:jedi#popup_on_dot = 1         " enable autocomplete on dot
-let g:jedi#popup_select_first = 0   " disable first select from auto-complete
-let g:jedi#goto_stubs = ""
-let g:jedi#goto_command = "<leader>d " "run python-scripts at <F5>
-let g:jedi#goto_assignments_command = "<leader>g"
-let g:jedi#goto_stubs_command = "<leader>S"
-let g:jedi#goto_definitions_command = ""
-let g:jedi#documentation_command = "K"
-let g:jedi#usages_command = "<leader>n"
-let g:jedi#completions_command = "<C-Space>"
-let g:jedi#rename_command = "<leader><leader>F"
-" Syntastic
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_enable_signs = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_aggregate_errors = 1
-noremap <f7> :w<CR>:SyntasticCheck<CR>
-
-" Better :sign interface symbols
-let g:syntastic_error_symbol = 'X'
-let g:syntastic_style_error_symbol = 'X'
-let g:syntastic_warning_symbol = 'x'
-let g:syntastic_style_warning_symbol = 'x'
-
-" Vim-Airline
-let g:airline_theme='powerlineish'
-
-"=====================================================
-" Python-mode settings
-"=====================================================
-" отключаем автокомплит по коду (у нас вместо него используется jedi-vim)
-let g:pymode_rope = 0
-let g:pymode_rope_completion = 0
-let g:pymode_rope_complete_on_dot = 0
-
-" документация
-let g:pymode_doc = 0
-let g:pymode_doc_key = 'K'
-" проверка кода
-let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
-let g:pymode_lint_ignore="E501,W601,C0110"
-" провека кода после сохранения
-let g:pymode_lint_write = 1
-
-" поддержка virtualenv
-let g:pymode_virtualenv = 1
-
-" установка breakpoints
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_key = '<leader>b'
-
-" подстветка синтаксиса
-let g:pymode_syntax = 1
-let g:pymode_syntax_all = 1
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-
-" отключить autofold по коду
-let g:pymode_folding = 0
-
-" возможность запускать код
-let g:pymode_run = 1
-" Other options
-let g:pymode_options_colorcolumn = 0
-if has("gui_running")
-    let g:airline_powerline_fonts = 1
-else
-    let g:airline_powerline_fonts = 0
-endif
 
 " options for ipython in vim
 " init.vim
@@ -595,9 +507,4 @@ nmap <silent> <leader>jc <Plug>(IPy-RunCell)
 nmap <silent> <C-S> <Plug>(IPy-Run)
 nmap <silent> <leader>ja <Plug>(IPy-RunAll)
 
-" Find files using Telescope command-line sugar.
-
-nnoremap <leader>ff <cmd>Telescope find_files<cr>
-nnoremap <leader>fg <cmd>Telescope live_grep<cr>
-nnoremap <leader>fb <cmd>Telescope buffers<cr>
-nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+"
