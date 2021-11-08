@@ -137,7 +137,7 @@ autocmd BufLeave term://* stopinsert
 " pymode
 let g:pymode_python = 'python3'
 " let g:pymode_python='python3'
-" let g:pymode_paths = ['c:/Users/reg16/soft/python36']
+let g:pymode_paths = ['c:/Users/reg16/soft/python36']
 let g:pymode_trim_whitespaces = 1
 let g:pymode_indent = 1                     " PEP-8 compatible indent
 let g:pymode_options_colorcolumn = 0
@@ -152,7 +152,7 @@ let g:pymode_rope_completion = 0
 let g:pymode_rope_complete_on_dot = 0
 
 " документация
-let g:pymode_doc = 0
+let g:pymode_doc = 1
 let g:pymode_doc_key = 'K'
 " проверка кода
 let g:pymode_lint = 1
@@ -189,7 +189,7 @@ endif
 
 "
 " vim-pydocstring
-"let g:pydocstring_doq_path = '~/.config/nvim/env/bin/doq'
+" let g:pydocstring_doq_path = '~/.config/nvim/env/bin/doq'
 
 " Supertab
 let g:SuperTabDefaultCompletionType = "<C-n>"
@@ -472,7 +472,7 @@ map <leader>- :e $HOME/AppData/Local/nvim/init.vim<CR>
 " source init.vim
 map <silent> <F1> :source $HOME/AppData/Local/nvim/init.vim<CR>
 
-map <leader> <Plug>(easymotion-{motion}))
+map <leader>ss <Plug>(easymotion-{motion}))
 
 " Unite settings
 nnoremap <F4> :Unite buffer<CR> " browse a list of the currently opened buffers

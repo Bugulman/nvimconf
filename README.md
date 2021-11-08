@@ -12,6 +12,8 @@ Run .\ChocolateyInstallNonAdmin.ps1.
 
 choco install ripgrep
 choco install fd
+choco install universal-ctags
+:CocInstall coc-python
 
 There are two way work with Ipython
 1)with press F5 key
