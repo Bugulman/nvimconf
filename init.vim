@@ -39,14 +39,14 @@ Plug 'junegunn/vim-easy-align'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-abolish'
 Plug 'Yggdroot/indentLine'
-Plug 'nvim-treesitter/nvim-treesitter'
-Plug 'nvim-telescope/telescope.nvim'
+" Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+" Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'nvim-lua/popup.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'chrisbra/Colorizer'
 Plug 'KabbAmine/vCoolor.vim'
-Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
+" Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
 Plug 'vim-scripts/loremipsum'
 Plug 'metakirby5/codi.vim'
 Plug 'dkarter/bullets.vim'
@@ -54,6 +54,7 @@ Plug 'psliwka/vim-smoothie'
 Plug 'antoinemadec/FixCursorHold.nvim'
 Plug 'wellle/context.vim'
 Plug 'easymotion/vim-easymotion'
+Plug 'vim-scripts/LargeFile'
 "--------------=== Snippets support ===---------------
 Plug 'SirVer/ultisnips'                    " Snippets manager
 Plug 'honza/vim-snippets'                     " Snippets repo
@@ -64,7 +65,12 @@ Plug 'jmcantrell/vim-virtualenv'              " Virtualenv support in VIM
 Plug 'vimwiki/vimwiki'
 Plug 'tell-k/vim-autopep8'
 Plug 'bfredl/nvim-ipy'
-
+"------------------=== FUZZY ===----------------------
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-telescope/telescope.nvim'
+" Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'sheerun/vim-polyglot'                     "syntax
+Plug 'nvim-lua/popup.nvim'
 
 
 " Entertainment
@@ -420,11 +426,12 @@ nmap <leader>y <C-w>v<C-w>l:HackerNews best<CR>J
 nmap <leader>p <Plug>(pydocstring)
 xmap <leader>a gaip*
 nmap <leader>a gaip*
+" Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
-nmap <leader>g :Goyo<CR>
+map <leader>g :Goyo<CR>
 nmap <leader>h :RainbowParentheses!!<CR>
 nmap <leader>j :set filetype=journal<CR>
 nmap <leader>k :ColorToggle<CR>
@@ -454,6 +461,13 @@ nnoremap <leader>q :q!<CR>
  vnoremap <y-y> "+yy
  vnoremap <C-Insert> "+y
 
+"=====================================================
+" User hotkeys
+"=====================================================
+" " CTRL-C and CTRL-Insert are Copy
+ vnoremap <C-C> "+y
+ vnoremap <y-y> "+yy
+ vnoremap <C-Insert> "+y
 " " CTRL-V and SHIFT-Insert are Paste
 map <C-V>       "+gP
 map <p>       "+gP
