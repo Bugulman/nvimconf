@@ -39,9 +39,11 @@ Plug 'junegunn/vim-easy-align'
 Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-abolish'
 Plug 'Yggdroot/indentLine'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
+Plug 'nvim-treesitter/nvim-treesitter'
+Plug 'nvim-telescope/telescope.nvim'
 Plug 'sheerun/vim-polyglot'
+Plug 'nvim-lua/popup.nvim'
+Plug 'nvim-lua/plenary.nvim'
 Plug 'chrisbra/Colorizer'
 Plug 'KabbAmine/vCoolor.vim'
 Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
@@ -57,7 +59,7 @@ Plug 'SirVer/ultisnips'                    " Snippets manager
 Plug 'honza/vim-snippets'                     " Snippets repo
 
 "--------------===Python languages ===---------------
-Plug 'python-mode/python-mode', { 'branch': 'develop' }
+" Plug 'python-mode/python-mode', { 'branch': 'develop' }
 Plug 'jmcantrell/vim-virtualenv'              " Virtualenv support in VIM
 Plug 'vimwiki/vimwiki'
 Plug 'tell-k/vim-autopep8'
@@ -137,7 +139,7 @@ autocmd BufLeave term://* stopinsert
 " pymode
 let g:pymode_python = 'python3'
 " let g:pymode_python='python3'
-let g:pymode_paths = ['c:/Users/reg16/soft/python36']
+let g:pymode_paths = ['D:\other\my_software\python']
 let g:pymode_trim_whitespaces = 1
 let g:pymode_indent = 1                     " PEP-8 compatible indent
 let g:pymode_options_colorcolumn = 0
@@ -418,9 +420,10 @@ nmap <leader>y <C-w>v<C-w>l:HackerNews best<CR>J
 nmap <leader>p <Plug>(pydocstring)
 xmap <leader>a gaip*
 nmap <leader>a gaip*
-nmap <leader>gf :Rg<CR>
-nmap <leader>d :Files<CR>
-nmap <leader>f :BLines<CR>
+nnoremap <leader>ff <cmd>Telescope find_files<cr>
+nnoremap <leader>fg <cmd>Telescope live_grep<cr>
+nnoremap <leader>fb <cmd>Telescope buffers<cr>
+nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nmap <leader>g :Goyo<CR>
 nmap <leader>h :RainbowParentheses!!<CR>
 nmap <leader>j :set filetype=journal<CR>
@@ -443,18 +446,20 @@ nnoremap <leader>w :w!<CR>
 
 " exit quickly
 nnoremap <leader>q :q!<CR>
+"=====================================================
+" User hotkeys
+"=====================================================
+" " CTRL-C and CTRL-Insert are Copy
+ vnoremap <C-C> "+y
+ vnoremap <y-y> "+yy
+ vnoremap <C-Insert> "+y
 
-" escaping various modes
-if has ('nvim')
-    " get out of terminal with same
-    " window movement key bindings
-    tnoremap jk		<C-\><C-n><CR>
-    tnoremap <C-[>  <C-\><C-n><CR>
-    tnoremap <C-W>h <C-\><C-n><C-w>h<CR>
-    tnoremap <C-W>j <C-\><C-n><C-w>j<CR>
-    tnoremap <C-W>k <C-\><C-n><C-w>k<CR>
-    tnoremap <C-W>l <C-\><C-n><C-w>l<CR>
-endif
+" " CTRL-V and SHIFT-Insert are Paste
+map <C-V>       "+gP
+map <p>       "+gP
+map <S-Insert>      "+gP
+cmap <C-V>      <C-R>+
+cmap <S-Insert>     <C-R>+
 
 " list all current buffers
 nnoremap <leader>bb :ls<CR>:b<Space>
@@ -506,5 +511,3 @@ nmap <silent> <leader>jk :IPython<Space>--existing<Space>--no-window<Enter>
 nmap <silent> <leader>jc <Plug>(IPy-RunCell)
 nmap <silent> <C-S> <Plug>(IPy-Run)
 nmap <silent> <leader>ja <Plug>(IPy-RunAll)
-
-"
