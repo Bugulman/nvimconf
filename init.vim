@@ -349,7 +349,7 @@ nmap <leader>$v <C-w>v<C-w>l:terminal<CR>:set nonumber<CR><S-a>
 nmap <C-n> :NERDTreeToggle<CR>
 nmap \\ <leader>q
 nmap <leader>w :TagbarToggle<CR>
-nmap \| <leader>w
+" nmap \| <leader>w
 nmap <leader>ee :Colors<CR>
 nmap <leader>ea :AirlineTheme 
 nmap <leader>e1 :call ColorDracula()<CR>
@@ -415,6 +415,13 @@ map <S-Insert>      "+gP
 cmap <C-V>      <C-R>+
 cmap <S-Insert>     <C-R>+
 
+" Switch between window splits using big J or K and expand the split to its 
+" full size. 
+nmap <C-Right> :vertical resize +1<CR>
+nmap <C-Left> :vertical resize -1<CR>
+nmap <C-Down> :resize +1<CR>
+nmap <C-Up> :resize -1<CR>
+" ## Log of coc.nvim
 " list all current buffers
 nnoremap <leader>bb :ls<CR>:b<Space>
 " close buffer
@@ -480,7 +487,7 @@ let g:ipy_celldef = '^##' " regex for cell start and end
 
 nmap <silent> <leader>jqt :RunQtConsole<Enter>
 nmap <silent> <leader>jk :IPython<Space>--existing<Space>--no-window<Enter>
-nmap <silent> <leader>jc <Plug>(IPy-RunCell)
+nmap <silent> <leader>jj <Plug>(IPy-RunCell)
 nmap <silent> <C-S> <Plug>(IPy-Run)
 nmap <silent> <leader>ja <Plug>(IPy-RunAll)
 let g:LargeFile = 50
