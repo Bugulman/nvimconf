@@ -36,7 +36,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'mhinz/vim-signify'
 Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/vim-easy-align'
-Plug 'alvan/vim-closetag'
+" Plug 'alvan/vim-closetag'
 Plug 'tpope/vim-abolish'
 Plug 'Yggdroot/indentLine'
 " Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -47,12 +47,12 @@ Plug 'nvim-lua/plenary.nvim'
 Plug 'chrisbra/Colorizer'
 Plug 'KabbAmine/vCoolor.vim'
 " Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
-Plug 'vim-scripts/loremipsum'
-Plug 'metakirby5/codi.vim'
-Plug 'dkarter/bullets.vim'
+" Plug 'vim-scripts/loremipsum'
+" Plug 'metakirby5/codi.vim'
+" Plug 'dkarter/bullets.vim'
 Plug 'psliwka/vim-smoothie'
-Plug 'antoinemadec/FixCursorHold.nvim'
-Plug 'wellle/context.vim'
+" Plug 'antoinemadec/FixCursorHold.nvim'
+" Plug 'wellle/context.vim'
 Plug 'easymotion/vim-easymotion'
 Plug 'vim-scripts/LargeFile'
 "--------------=== Snippets support ===---------------
@@ -93,6 +93,7 @@ set textwidth=0
 set hidden
 set number
 set title
+set autochdir           " change working directory to current file
 
 """ Coloring
 
@@ -142,60 +143,7 @@ tmap <C-w> <Esc><C-w>
 autocmd BufWinEnter,WinEnter term://* startinsert
 autocmd BufLeave term://* stopinsert
 
-" pymode
-let g:pymode_python = 'python3'
-" let g:pymode_python='python3'
-let g:pymode_paths = ['D:\other\my_software\python']
-let g:pymode_trim_whitespaces = 1
-let g:pymode_indent = 1                     " PEP-8 compatible indent
-let g:pymode_options_colorcolumn = 0
-let g:pymode_lint = 0
-let g:pymode_lint_on_write = 0
-let g:pymode_rope = 0
-let g:pymode_rope_complete_on_dot = 0
-let g:pymode_virtualenv = 1
-" отключаем автокомплит по коду (у нас вместо него используется jedi-vim)
-let g:pymode_rope = 0
-let g:pymode_rope_completion = 0
-let g:pymode_rope_complete_on_dot = 0
 
-" документация
-let g:pymode_doc = 1
-let g:pymode_doc_key = 'K'
-" проверка кода
-let g:pymode_lint = 1
-let g:pymode_lint_checker = "pyflakes,pep8"
-let g:pymode_lint_ignore="E501,W601,C0110"
-" провека кода после сохранения
-let g:pymode_lint_write = 1
-
-" поддержка virtualenv
-let g:pymode_virtualenv = 1
-
-" установка breakpoints
-let g:pymode_breakpoint = 1
-let g:pymode_breakpoint_key = '<leader>b'
-
-" подстветка синтаксиса
-let g:pymode_syntax = 0
-let g:pymode_syntax_all = 0
-let g:pymode_syntax_indent_errors = g:pymode_syntax_all
-let g:pymode_syntax_space_errors = g:pymode_syntax_all
-
-" отключить autofold по коду
-let g:pymode_folding = 0
-
-" возможность запускать код
-let g:pymode_run = 1
-" Other options
-let g:pymode_options_colorcolumn = 0
-if has("gui_running")
-    let g:airline_powerline_fonts = 1
-else
-    let g:airline_powerline_fonts = 0
-endif
-
-"
 " vim-pydocstring
 " let g:pydocstring_doq_path = '~/.config/nvim/env/bin/doq'
 
@@ -218,24 +166,10 @@ let g:vim_markdown_conceal_code_blocks = 0
 let g:tagbar_width = 30
 
 " fzf-vim
-let g:fzf_action = {
-  \ 'ctrl-t': 'tab split',
-  \ 'ctrl-s': 'split',
-  \ 'ctrl-v': 'vsplit' }
-let g:fzf_colors =
-\ { 'fg':      ['fg', 'Normal'],
-  \ 'bg':      ['bg', 'Normal'],
-  \ 'hl':      ['fg', 'Comment'],
-  \ 'fg+':     ['fg', 'CursorLine', 'CursorColumn', 'Normal'],
-  \ 'bg+':     ['bg', 'CursorLine', 'CursorColumn'],
-  \ 'hl+':     ['fg', 'Statement'],
-  \ 'info':    ['fg', 'Type'],
-  \ 'border':  ['fg', 'Constant'],
-  \ 'prompt':  ['fg', 'Character'],
-  \ 'pointer': ['fg', 'Exception'],
-  \ 'marker':  ['fg', 'Keyword'],
-  \ 'spinner': ['fg', 'Label'],
-  \ 'header':  ['fg', 'Comment'] }
+" let g:fzf_action = {
+"   \ 'ctrl-t': 'tab split',
+"   \ 'ctrl-s': 'split',
+"   \ 'ctrl-v': 'vsplit' }
 
 " Bat theme for syntax coloring when viewing files in fzf
 let $BAT_THEME='base16'
@@ -256,7 +190,6 @@ autocmd VimEnter *
     \ | endif
 
 " coc.vim START
-
 " Having longer updatetime (default is 4000 ms = 4 s) leads to noticeable
 " delays and poor user experience.
 set updatetime=300
@@ -379,6 +312,9 @@ function! TrimWhitespace()
     call winrestview(l:save)
 endfunction
 
+"Remove all trailing whitespace by pressing F5
+nnoremap <F5> :let _s=@/<Bar>:%s/\s\+$//e<Bar>:let @/=_s<Bar><CR>
+
 " Dracula Mode (Dark)
 function! ColorDracula()
     let g:airline_theme='dracula'
@@ -423,7 +359,7 @@ nmap <leader>e4 :call ColorZazen()<CR>
 nmap <leader>r :so ~/.config/nvim/init.vim<CR>
 nmap <leader>t :call TrimWhitespace()<CR>
 nmap <leader>y <C-w>v<C-w>l:HackerNews best<CR>J
-nmap <leader>p <Plug>(pydocstring)
+" nmap <leader>p <Plug>(pydocstring)
 xmap <leader>a gaip*
 nmap <leader>a gaip*
 " Find files using Telescope command-line sugar.
@@ -434,6 +370,7 @@ nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 map <leader>g :Goyo<CR>
 nmap <leader>h :RainbowParentheses!!<CR>
 nmap <leader>j :set filetype=journal<CR>
+nmap <leader>p :set filetype=pov<CR>
 nmap <leader>k :ColorToggle<CR>
 nmap <leader>l :Limelight!!<CR>
 xmap <leader>l :Limelight!!<CR>
@@ -443,25 +380,28 @@ nmap <Tab> :bnext<CR>
 nmap <S-Tab> :bprevious<CR>
 " nnoremap <silent> <Leader>+ :exe "resize " . (winheight(0) * 3/2)<CR>
 " nnoremap <silent> <Leader>- :exe "resize " . (winheight(0) * 2/3)<CR>
-
+"
+"split for search
+if exists('&inccommand')
+    set inccommand=split " (neovim) specific, live substitutin preview
+endif
+"
 " quick subtitutions
 nnoremap <leader>s :%s/
 nnoremap <leader>i :%g/
 
 " fast saves
-nnoremap <leader>w :w!<CR>
+" nnoremap <leader>w :w!<CR>
 
 " exit quickly
 nnoremap <leader>q :q!<CR>
 "=====================================================
-" User hotkeys
-"=====================================================
-" " CTRL-C and CTRL-Insert are Copy
- vnoremap <C-C> "+y
- vnoremap <y-y> "+yy
- vnoremap <C-Insert> "+y
+"
+nmap <C-Right> :vertical resize -1<CR>
+nmap <C-Left> :vertical resize +1<CR>
+nmap <C-Down> :resize +1<CR>
+nmap <C-Up> :resize -1<CR>"=====================================================
 
-"=====================================================
 " User hotkeys
 "=====================================================
 " " CTRL-C and CTRL-Insert are Copy
@@ -496,7 +436,7 @@ map <leader>ss <Plug>(easymotion-{motion}))
 " Unite settings
 nnoremap <F4> :Unite buffer<CR> " browse a list of the currently opened buffers
 " ConqueTerm
-nnoremap <F5> :ConqueTermSplit ipython3.exe<CR> " run python-scripts at <F5>
+" nnoremap <F5> :ConqueTermSplit ipython3.exe<CR> " run python-scripts at <F5>
 let g:ConqueTerm_StartMessages = 0
 let g:ConqueTerm_CloseOnEnd = 0
 
@@ -511,10 +451,28 @@ let g:UltiSnipsEditSplit="vertical"
 " options for ipython in vim
 " init.vim
 
-function! ConnectToPipenvKernel()
-  let l:kernel = system('echo "ipykernel_$(basename "$(pwd)")" | tr -d "\n"')
-  call IPyConnect('--kernel', l:kernel, '--no-window')
+" function! ConnectToPipenvKernel()
+"   let l:kernel = system('echo "ipykernel_$(basename "$(pwd)")" | tr -d "\n"')
+"   call IPyConnect('--kernel', l:kernel, '--no-window')
+" endfunction
+
+function! GetKernelFromPipenv()
+    let a:kernel = tolower(system('basename $(pipenv --venv)'))
+    " Remove control characters (most importantly newline)
+    return substitute(a:kernel, '[[:cntrl:]]', '', 'g')
 endfunction
+
+function! ConnectToPipenvKernel()
+    let a:kernel = GetKernelFromPipenv()
+    call IPyConnect('--kernel', a:kernel, '--no-window')
+endfunction
+
+function! AddFilepathToSyspath()
+    let a:filepath = expand('%:p:h')
+    call IPyRun('import sys; sys.path.append("' . a:filepath . '")')
+    echo 'Added ' . a:filepath . ' to pythons sys.path'
+endfunction
+
 
 command! -nargs=0 RunQtConsole call jobstart("jupyter qtconsole --JupyterWidget.include_other_output=True")
 
@@ -525,3 +483,5 @@ nmap <silent> <leader>jk :IPython<Space>--existing<Space>--no-window<Enter>
 nmap <silent> <leader>jc <Plug>(IPy-RunCell)
 nmap <silent> <C-S> <Plug>(IPy-Run)
 nmap <silent> <leader>ja <Plug>(IPy-RunAll)
+let g:LargeFile = 50
+autocmd FileType pov setlocal commentstring=--\ %s
