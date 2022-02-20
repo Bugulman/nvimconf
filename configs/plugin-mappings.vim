@@ -11,8 +11,8 @@ nnoremap <silent> <Leader>gb :Git blame<Enter>
 nnoremap <silent> <Leader>gr :Gread<Enter>
 nnoremap <silent> <Leader>gl :Git log<Enter>
 "FZF
-nnoremap <silent> <Leader>l :Buffers<Enter>
-nnoremap <C-p> :GFiles <Enter>
+" nnoremap <silent> <Leader>l :Buffers<Enter>
+" nnoremap <C-p> :GFiles <Enter>
 "gundo
 nnoremap <silent> <Leader>i :GundoToggle<Enter>
 "easymotion
@@ -46,12 +46,13 @@ inoremap <silent><expr> <Enter> pumvisible() ? coc#_select_confirm()
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 " TagbarToggle
-nmap <leader>w :TagbarToggle<CR>
+nmap <leader>w :Vista<CR>
 " Find files using Telescope command-line sugar.
 nnoremap <leader>ff <cmd>Telescope find_files<cr>
 nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
+nnoremap <leader>of <cmd>Telescope oldfiles<cr>
 map <leader>g :Goyo<CR>
 nmap <leader>h :RainbowParentheses!!<CR>
 nmap <leader>j :set filetype=journal<CR>

@@ -67,3 +67,5 @@ let g:UltiSnipsEditSplit="vertical"
 let g:ipy_celldef = '^##' " regex for cell start and end
 " size for large files
 let g:LargeFile = 50
+" Vista settings
+let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
