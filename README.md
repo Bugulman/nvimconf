@@ -10,10 +10,11 @@ Open PowerShell.exe.
 Run the following Set-ExecutionPolicy Bypass -Scope Process -Force;
 Run .\ChocolateyInstallNonAdmin.ps1.
 
-choco install ripgrep
-choco install fd
-choco install universal-ctags
-:CocInstall coc-python
+- choco install ripgrep
+- choco install fd
+- choco install universal-ctags
+and don't forget to install universal ctags
+- choco install universal-ctags 
 
 There are two way work with Ipython
 1)with press F5 key
