@@ -40,8 +40,8 @@ Plug 'junegunn/vim-easy-align'
 Plug 'tpope/vim-abolish'
 Plug 'Yggdroot/indentLine'
 Plug 'sheerun/vim-polyglot'
-Plug 'nvim-lua/popup.nvim'
-Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-lua/popup.nvim'
+" Plug 'nvim-lua/plenary.nvim'
 Plug 'chrisbra/Colorizer'
 Plug 'KabbAmine/vCoolor.vim'
 " Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
@@ -64,11 +64,11 @@ Plug 'vimwiki/vimwiki'
 Plug 'tell-k/vim-autopep8'
 Plug 'bfredl/nvim-ipy'
 "------------------=== FUZZY ===----------------------
-Plug 'nvim-lua/plenary.nvim'
+" Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'sheerun/vim-polyglot'                     "syntax
-Plug 'nvim-lua/popup.nvim'
+" Plug 'nvim-lua/popup.nvim'
 
 
 " Entertainment
@@ -146,7 +146,7 @@ autocmd BufLeave term://* stopinsert
 " let g:pydocstring_doq_path = '~/.config/nvim/env/bin/doq'
 
 " Supertab
-let g:SuperTabDefaultCompletionType = "<C-n>"
+" let g:SuperTabDefaultCompletionType = "<C-n>"
 
 " EasyAlign
 xmap ga <Plug>(EasyAlign)
@@ -169,8 +169,6 @@ let g:tagbar_width = 30
 "   \ 'ctrl-s': 'split',
 "   \ 'ctrl-v': 'vsplit' }
 
-" Bat theme for syntax coloring when viewing files in fzf
-let $BAT_THEME='base16'
 
 " Limelight
 let g:limelight_conceal_ctermfg = 'gray'
@@ -365,17 +363,6 @@ let g:cursorhold_updatetime = 100
 
 " context.vim
 let g:context_nvim_no_redraw =1
-
-""" Filetype-Specific Configurations
-
-" HTML, XML, Jinja
-autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType xml setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType htmldjango inoremap {{ {{  }}<left><left><left>
-autocmd FileType htmldjango inoremap {% {%  %}<left><left><left>
-autocmd FileType htmldjango inoremap {# {#  #}<left><left><left>
 
 " Markdown and Journal
 autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2
