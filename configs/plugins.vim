@@ -1,10 +1,11 @@
 call plug#begin('~/.vim/plugged')
-"Languages~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"Languages
 Plug 'leafgarland/typescript-vim'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'pangloss/vim-javascript'
 Plug 'Vimjas/vim-python-pep8-indent'
-"Special~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+"Special
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'easymotion/vim-easymotion'
@@ -24,6 +25,7 @@ Plug 'vim-scripts/LargeFile'
 " Plug 'majutsushi/tagbar'
 Plug 'liuchengxu/vista.vim'
 Plug 'tpope/vim-commentary'                   " Comment stuff out
+Plug '0x84/vim-coderunner'
 "--------------===Python languages ===---------------
 Plug 'jmcantrell/vim-virtualenv'              " Virtualenv support in VIM
 Plug 'vimwiki/vimwiki'
@@ -35,6 +37,7 @@ Plug 'honza/vim-snippets'                     " Snippets repo
 "------------------=== FUZZY ===----------------------
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
+Plug 'nvim-telescope/telescope-media-files.nvim'
 Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'sheerun/vim-polyglot'                     "syntax
 Plug 'nvim-lua/popup.nvim'
@@ -59,5 +62,6 @@ Plug 'junegunn/vim-journal'
 Plug 'ryanoasis/vim-devicons'
 Plug 'psliwka/vim-smoothie'
 Plug 'chrisbra/Colorizer'
-
+Plug 'renerocksai/telekasten.nvim'
+Plug 'renerocksai/calendar-vim'
 call plug#end()
