@@ -1,0 +1,150 @@
+{
+  "main": {
+    "id": "1c8f0ce44f41a6c6",
+    "type": "split",
+    "children": [
+      {
+        "id": "3f6a3ce108c49d4d",
+        "type": "leaf",
+        "dimension": 46.495726495726494,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Templates/basic.md",
+            "mode": "source",
+            "source": false
+          }
+        },
+        "group": "53050ebca635dfc5"
+      },
+      {
+        "id": "ab80b720fa978a1d",
+        "type": "leaf",
+        "dimension": 53.504273504273506,
+        "state": {
+          "type": "markdown",
+          "state": {
+            "file": "Templates/basic.md",
+            "mode": "preview",
+            "source": false
+          }
+        },
+        "group": "53050ebca635dfc5"
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "4b5a909e278cbc4f",
+    "type": "split",
+    "children": [
+      {
+        "id": "d193b19bf4ce29d1",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "0ce691fa42a93c2d",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {}
+            }
+          },
+          {
+            "id": "cb0d5d694a70e23b",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "tag:#пробоотборник",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "11ee3b14ff5d3807",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ],
+        "currentTab": 2
+      }
+    ],
+    "direction": "horizontal",
+    "width": 383
+  },
+  "right": {
+    "id": "7e9dccbf96c9021e",
+    "type": "split",
+    "children": [
+      {
+        "id": "86a246eff9b4dba2",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "04a941d22f826207",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "Templates/basic.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": true,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "f901072f0ad945ab",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "24f33deb5b9caaf1",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "BASE/xlwings.md"
+              }
+            }
+          }
+        ],
+        "currentTab": 1
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "ab80b720fa978a1d",
+  "lastOpenFiles": [
+    "Templates/basic.md",
+    "Templates/daily_temp.md",
+    "Templates/HOTKEYS.md",
+    "BASE/PVT.md",
+    "BASE/smooth_script.md",
+    "Daily/2021-05-09.md",
+    "Daily/2021-05-08.md",
+    "BASE/листа задач.md",
+    "BASE/Дерево решений.md",
+    "BASE/визуализация выполнения кода.md"
+  ]
+}
