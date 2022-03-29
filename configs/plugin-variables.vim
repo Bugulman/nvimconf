@@ -34,11 +34,12 @@ let g:coc_global_extensions=[
             \'coc-css',
             \'coc-json',
             \'coc-tsserver',
-            \'coc-java',
-            \'coc-solargraph',
+            \'coc-markdownlint',
+            \'coc-vimlsp',
             \'coc-snippets',
             \'coc-eslint',
-            \'coc-pyright'
+            \'coc-pyright',
+            \'coc-diagnostic'
             \]
 "NERDTreeGitPlugin
 let g:NERDTreeGitStatusIndicatorMapCustom = {

@@ -1,3 +1,4 @@
+`pip install pynvim`
 Dont forget set 
 `pip install pynvim`
 

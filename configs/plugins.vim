@@ -7,6 +7,7 @@ Plug 'leafgarland/typescript-vim'
 "Special
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
+Plug 'neovim/nvim-lspconfig'
 Plug 'easymotion/vim-easymotion'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
