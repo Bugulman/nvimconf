@@ -1,11 +1,10 @@
 call plug#begin('~/.vim/plugged')
 "Languages
 Plug 'leafgarland/typescript-vim'
-Plug 'maxmellon/vim-jsx-pretty'
-Plug 'pangloss/vim-javascript'
-Plug 'Vimjas/vim-python-pep8-indent'
+" Plug 'maxmellon/vim-jsx-pretty'
+" Plug 'pangloss/vim-javascript'
+" Plug 'Vimjas/vim-python-pep8-indent'
 "Special
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'easymotion/vim-easymotion'
@@ -60,6 +59,8 @@ Plug 'junegunn/limelight.vim'
 Plug 'junegunn/seoul256.vim'
 Plug 'junegunn/vim-journal'
 Plug 'ryanoasis/vim-devicons'
+
+" Plug 'vwxyutarooo/nerdtree-devicons-syntax'
 Plug 'psliwka/vim-smoothie'
 Plug 'chrisbra/Colorizer'
 Plug 'renerocksai/telekasten.nvim'
