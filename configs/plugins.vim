@@ -31,8 +31,9 @@ Plug 'sheerun/vim-polyglot'                     "syntax
 Plug 'nvim-lua/popup.nvim'
 "Git~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 " Plug 'airblade/vim-gitgutter'
+Plug 'kdheepak/lazygit.nvim'
 Plug 'lewis6991/gitsigns.nvim'
-Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-fugitive'
 "Themes~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 Plug 'icymind/NeoSolarized'
 Plug 'joshdick/onedark.vim'
