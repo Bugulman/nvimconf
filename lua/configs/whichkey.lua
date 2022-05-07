@@ -88,7 +88,7 @@ local mappings = {
   ["w"] = { "<cmd>w!<CR>", "Save" },
   ["q"] = { "<cmd>q!<CR>", "Quit" },
   ["c"] = { "<cmd>Bdelete!<CR>", "Close Buffer" },
-  ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
+  -- ["h"] = { "<cmd>nohlsearch<CR>", "No Highlight" },
   ["ff"] = {
     "<cmd>lua require('telescope.builtin').find_files(require('telescope.themes').get_dropdown{previewer = false})<cr>",
     "Find files",
@@ -180,6 +180,16 @@ local mappings = {
     f = { "<cmd>ToggleTerm direction=float<cr>", "Float" },
     h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
     v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
+  },
+  z = {
+    name = "Zettelkasten",
+    n = { "<cmd>lua require('telekasten').new_templated_note()<CR>", "New_note" },
+    u = { "<cmd>lua telekasten.goto_today", "Daily_note" },
+    f = { "<cmd>lua require('telekasten').find_notes()<CR>", "Find_notes" },
+    c = { "<cmd>lua require('telekasten').show_calendar()<CR>", "Calendar" },
+    s = { "<cmd>lua require('telekasten').search_notes()<CR>", "Search" },
+    -- h = { "<cmd>ToggleTerm size=10 direction=horizontal<cr>", "Horizontal" },
+    -- v = { "<cmd>ToggleTerm size=80 direction=vertical<cr>", "Vertical" },
   },
 }
 
