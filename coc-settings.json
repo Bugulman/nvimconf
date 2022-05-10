@@ -1,7 +1,0 @@
-{
-    "python.jediEnabled": false,
-    "diagnostic.errorSign": "✘",
-    "diagnostic.warningSign": "✗",
-    "diagnostic.infoSign": "✗",
-    "diagnostic.hintSign": "✗"
-}

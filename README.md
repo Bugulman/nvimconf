@@ -1,5 +1,4 @@
-### Neovim editor configuration
-[#](#) nvimconf
+`pip install pynvim`
 Dont forget set 
 `pip install pynvim`
 
@@ -26,3 +25,8 @@ with ipy plug
 *	Use <leader>ja to run all cells
 But before you should install jupyter, pyqt5 and test in in cmd
 
+## if need you need icons into nerdtree, then set into PowerShell
+*	`Set-ExecutionPolicy Unrestricted`
+*	clone repo `https://github.com/ryanoasis/nerd-fonts.git`
+*	set into shell `.\install.ps1 Hack`
+*	`Set-ExecutionPolicy Restricted`
