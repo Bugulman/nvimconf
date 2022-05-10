@@ -1,12 +1,12 @@
-source ~/.config/nvim/configs/plugins.vim
-source ~/.config/nvim/configs/functions.vim
-source ~/.config/nvim/configs/core-sets.vim
-source ~/.config/nvim/configs/core-mappings.vim
-source ~/.config/nvim/configs/plugin-mappings.vim
-source ~/.config/nvim/configs/plugin-variables.vim
-source ~/.config/nvim/configs/autocmd.vim
-source ~/.config/nvim/configs/theme.vim
-source ~/.config/nvim/configs/telekasten.vim
+source ~/AppData/Local/nvim/configs/plugins.vim
+source ~/AppData/Local/nvim/configs/functions.vim
+source ~/AppData/Local/nvim/configs/core-sets.vim
+source ~/AppData/Local/nvim/configs/core-mappings.vim
+source ~/AppData/Local/nvim/configs/plugin-mappings.vim
+source ~/AppData/Local/nvim/configs/plugin-variables.vim
+source ~/AppData/Local/nvim/configs/autocmd.vim
+source ~/AppData/Local/nvim/configs/theme.vim
+source ~/AppData/Local/nvim/configs/telekasten.vim
 lua require "configs.alpha"
 lua require "configs.whichkey"
 lua require "configs.project"
