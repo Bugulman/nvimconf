@@ -1,5 +1,5 @@
 lua << END
-local home = vim.fn.expand("D:/soft/obsidian/zettelkasten")
+local home = vim.fn.expand("D:/other/notes")
 -- NOTE for Windows users:
 -- - don't use Windows
 -- - try WSL2 on Windows and pretend you're on Linux
@@ -23,7 +23,7 @@ require('telekasten').setup({
     -- image (sub)dir for pasting
     -- dir name (absolute path or subdir name)
     -- or nil if pasted images shouldn't go into a special subdir
-    image_subdir = "img",
+    image_subdir = "FILES",
 
     -- markdown file extension
     extension    = ".md",
@@ -35,7 +35,7 @@ require('telekasten').setup({
 
     -- template for new notes (new_note, follow_link)
     -- set to `nil` or do not specify if you do not want a template
-    template_new_note = home .. '/' .. 'templates/new_note.md',
+    template_new_note = home .. '/' .. 'templates/basic.md',
 
     -- template for newly created daily notes (goto_today)
     -- set to `nil` or do not specify if you do not want a template
