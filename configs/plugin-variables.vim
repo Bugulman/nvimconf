@@ -1,4 +1,7 @@
 "gundo
+let python3_host_prog = 'C:/Users/reg16/soft/python/python.exe'
+let g:virtualenv_directory = 'C:/Users/reg16/Envs'
+ 
 if has('python3')
     let g:gundo_prefer_python3 = 1
 endif
