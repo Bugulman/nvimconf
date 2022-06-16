@@ -1,7 +1,11 @@
 "gundo
+let python3_host_prog = 'C:/Users/reg16/soft/python/python.exe'
+let g:virtualenv_directory = 'C:/Users/reg16/Envs'
+ 
 if has('python3')
     let g:gundo_prefer_python3 = 1
 endif
+let python3_host_prog ='D:/other/my_software/python310/python.EXE'
 "gitgutter
 let g:gitgutter_max_signs = 9999
 let g:gitgutter_sign_added = '┃'
@@ -55,10 +59,11 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
                 \ 'Unknown'   :'-',
                 \ }
 " Limelight
+
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_guifg = 'gray'
 " SnipMate settings
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/bundle/vim-snippets/UltiSnips']
+" let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/bundle/vim-snippets/UltiSnips']
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"

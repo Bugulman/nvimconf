@@ -39,9 +39,7 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 "terminal open
-nnoremap <silent><Leader>v :vsplit term://bash<Enter>:norm A<Enter>
-nnoremap <silent><Leader>t :split term://bash<Enter>:norm A<Enter>
-"terminal close
+nnoremap <silent><Leader>t :ToggleTerm size=80 direction=vertical<cr>
 tnoremap <silent><A-;> <C-\><C-n>:bd!<Enter>
 " working with buffer
 nmap <Tab> :bnext<CR>
@@ -62,7 +60,8 @@ nnoremap <leader>i :%g/
 nmap <C-Right> :vertical resize -1<CR>
 nmap <C-Left> :vertical resize +1<CR>
 nmap <C-Down> :resize +1<CR>
-nmap <C-Up> :resize -1<CR>"=====================================================
+nmap <C-Up> :resize -1<CR>
+"=====================================================
 " " CTRL-C and CTRL-Insert are Copy
  vnoremap <C-C> "+y
  vnoremap <y-y> "+yy
