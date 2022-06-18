@@ -54,8 +54,8 @@ nvim_tree.setup {
     icons = {
       hint = "",
       info = "",
-      warning = "",
-      error = "",
+      warning = "W",
+      error = "E",
     },
   },
   update_focused_file = {
@@ -96,6 +96,5 @@ nvim_tree.setup {
   trash = {
     cmd = "trash",
     require_confirm = true,
-  },
-  quit_on_open = 0,
+  }
   }

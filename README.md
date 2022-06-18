@@ -22,9 +22,14 @@ with ipy plug
 *	Press <leader>jk to connect to just opened kernel
 *	Use <leader>jc to run cell
 *	Use <leader>ja to run all cells
+<<<<<<< Updated upstream
 But before you should install jupyter, pyqt5, qtconsole and test in in cmd
 
 Если все таки выдает ошибку на функцию IPyConnect то нужно выполнить команду :UpdateRemotePlugins``
+=======
+But before you should install jupyter, pyqt5 and test in in cmd
+Need clean coc config files and del all stuff
+>>>>>>> Stashed changes
 
 ## if need you need icons into nerdtree, then set into PowerShell
 *	`Set-ExecutionPolicy Unrestricted`

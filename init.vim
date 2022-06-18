@@ -9,7 +9,6 @@ source ~/AppData/Local/nvim/configs/theme.vim
 source ~/AppData/Local/nvim/configs/telekasten.vim
 lua require "configs.alpha"
 lua require "configs.whichkey"
-lua require "configs.project"
 lua require "configs.gitsigns"
 lua require "configs.lualine"
 lua require "configs.cmp"
