@@ -19,9 +19,6 @@ Plug 'jmcantrell/vim-virtualenv'              " Virtualenv support in VIM
 Plug 'vimwiki/vimwiki'
 Plug 'tell-k/vim-autopep8'
 Plug 'bfredl/nvim-ipy'
-"--------------=== Snippets support ===---------------
-Plug 'SirVer/ultisnips'                    " Snippets manager
-Plug 'honza/vim-snippets'                     " Snippets repo
 "------------------=== FUZZY ===----------------------
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim'
@@ -74,11 +71,13 @@ Plug 'renerocksai/calendar-vim'
  Plug 'hrsh7th/cmp-buffer' " buffer completions
  Plug 'hrsh7th/cmp-path' " path completions
  Plug 'hrsh7th/cmp-cmdline' " cmdline completions
- Plug 'saadparwaiz1/cmp_luasnip' " snippet completions
+ " Plug 'saadparwaiz1/cmp_luasnip' " snippet completions
  Plug 'hrsh7th/cmp-nvim-lsp'
+" For ultisnips users.
   " -- snippets
- " Plug 'L3MON4D3/LuaSnip' "snippet engine
- " Plug 'rafamadriz/friendly-snippets' " a bunch of snippets toPlug
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'                     " Snippets repo
+Plug 'quangnguyen30192/cmp-nvim-ultisnips'
   " -- LSP
  Plug 'neovim/nvim-lspconfig' " enable LSP
  Plug 'williamboman/nvim-lsp-installer' " simple toPlug language server installer

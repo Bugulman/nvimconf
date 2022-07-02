@@ -1,5 +1,5 @@
 lua << END
-local home = vim.fn.expand("D:/other/notes")
+local home = vim.fn.expand("C:/Users/Public/Documents/zettelkasten")
 -- NOTE for Windows users:
 -- - don't use Windows
 -- - try WSL2 on Windows and pretend you're on Linux
