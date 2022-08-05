@@ -78,3 +78,14 @@ for _, lsp in ipairs(servers) do
     }
   }
 end
+
+require'lspconfig'.arduino_language_server.setup {
+  cmd = {
+    "arduino-language-server",
+    "-cli-config", "C:/Users/reg16/AppData/Local/Arduino15/arduino-cli.yaml",
+    "-fqbn", "arduino:avr:uno",
+    "-cli", "arduino-cli",
+    "-clangd", "clangd"
+  }
+}
+

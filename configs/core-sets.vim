@@ -49,6 +49,7 @@ set path=~/main/**/*
 set mouse=a
 set mousehide
 set noswapfile
+set guifont=Consolas:h14
 " set guifont=Fantasque\ Sans\ Mono:h13
 set belloff=all
 set shortmess-=S
