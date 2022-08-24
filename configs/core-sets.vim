@@ -57,11 +57,11 @@ set backspace=indent,eol,start
 set background=dark
 set guicursor=
 "statusline
-set statusline=
-set statusline+=\%*
-set statusline+=%3*\ %F
-set statusline+=%5*
-set statusline+=\ %{CurrentGitBranch()}
+" set statusline=
+" set statusline+=\%*
+" set statusline+=%3*\ %F
+" set statusline+=%5*
+" set statusline+=\ %{CurrentGitBranch()}
 set statusline+=%4*\ %m
 set statusline+=%3*
 set statusline+=%=

@@ -56,7 +56,7 @@ return packer.startup(function(use)
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
-  -- use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "williamboman/mason.nvim"
   use "williamboman/mason-lspconfig.nvim"
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
@@ -64,22 +64,16 @@ return packer.startup(function(use)
   use "SmiteshP/nvim-navic"
   use "simrat39/symbols-outline.nvim"
   use "b0o/SchemaStore.nvim"
-  -- use "github/copilot.vim"
-  use {
-    "zbirenbaum/copilot.lua",
-    event = { "VimEnter" },
-    config = function()
-      vim.defer_fn(function()
-        require "user.copilot"
-      end, 100)
-    end,
-  }
   --[[ use "RRethy/vim-illuminate" ]]
   use "j-hui/fidget.nvim"
   use "lvimuser/lsp-inlayhints.nvim"
   -- use "simrat39/inlay-hints.nvim"
-  use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
-
+  -- use({
+  -- "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  -- config = function()
+  --   require("lsp_lines").setup()
+  -- end,
+  -- }) 
   -- Completion
   use "christianchiarulli/nvim-cmp"
   use "hrsh7th/cmp-buffer" -- buffer completions
@@ -89,9 +83,8 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
-  --[[ use "zbirenbaum/copilot-cmp" ]]
-  use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", 
-run = "./install.sh" }
+  use "hrsh7th/nvim-cmp" --completion
+  use {'tzachar/cmp-tabnine', after = "nvim-cmp", run='powershell ./install.ps1', requires = 'hrsh7th/nvim-cmp'}
 
   -- Snippet
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -159,7 +152,8 @@ run = "./install.sh" }
   -- use "tiagovla/scope.nvim"
 
   -- Statusline
-  use "christianchiarulli/lualine.nvim"
+  -- use "christianchiarulli/lualine.nvim"
+  use "nvim-lualine/lualine.nvim"
 
   -- Startup
   use "goolord/alpha-nvim"
