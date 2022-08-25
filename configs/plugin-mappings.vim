@@ -2,11 +2,11 @@
 nnoremap <silent><C-n> :NvimTreeToggle<Enter>
 nnoremap <silent><C-j> :NvimTreeFindFile<Enter>
 "GIT
-nnoremap <silent> <Leader>gg :Git<Enter>
-nnoremap <silent> <Leader>gc :Commits<Enter>
-nnoremap <silent> <Leader>gb :Git blame<Enter>
-nnoremap <silent> <Leader>gr :Gread<Enter>
-nnoremap <silent> <Leader>gl :Git log<Enter>
+" nnoremap <silent> <Leader>gg :Git<Enter>
+" nnoremap <silent> <Leader>gc :Commits<Enter>
+" nnoremap <silent> <Leader>gb :Git blame<Enter>
+" nnoremap <silent> <Leader>gr :Gread<Enter>
+" nnoremap <silent> <Leader>gl :Git log<Enter>
 "gundo
 nnoremap <silent> <Leader>i :GundoToggle<Enter>
 "easymotion
