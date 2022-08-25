@@ -78,6 +78,7 @@ for _, server in pairs(servers) do
     local pyright_opts = require "user.lsp.settings.pyright"
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
   end
+
   lspconfig[server].setup(opts)
   ::continue::
 end
