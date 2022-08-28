@@ -44,7 +44,7 @@ nnoremap <silent><Leader>t :split term://bash<Enter>:norm A<Enter>
 "terminal close
 tnoremap <silent><A-;> <C-\><C-n>:bd!<Enter>
 " working with buffer
-nmap <Tab> :bnext<CR>
+" nmap <Tab> :bnext<CR>
 nmap <S-Tab> :bprevious<CR>
 " list all current buffers
 nnoremap <leader>bb :ls<CR>:b<Space>
