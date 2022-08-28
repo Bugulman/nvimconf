@@ -109,3 +109,12 @@ hi tkHighlight ctermbg=yellow ctermfg=darkred cterm=bold guibg=yellow guifg=dark
 hi link CalNavi CalRuler
 hi tkTagSep ctermfg=gray guifg=gray
 hi tkTag ctermfg=175 guifg=#d3869B
+
+nnoremap <leader>S <cmd>lua require('spectre').open()<CR>
+
+"search current word
+nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
+vnoremap <leader>s <esc>:lua require('spectre').open_visual()<CR>
+"  search in current file
+nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
+" run command :Spectre

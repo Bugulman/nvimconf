@@ -56,8 +56,8 @@ if exists('&inccommand')
 endif
 "
 " quick subtitutions
-nnoremap <leader>s :%s/
-nnoremap <leader>i :%g/
+" nnoremap <leader>s :%s/
+" nnoremap <leader>i :%g/
 " quick resize widnows
 nmap <C-Right> :vertical resize -1<CR>
 nmap <C-Left> :vertical resize +1<CR>

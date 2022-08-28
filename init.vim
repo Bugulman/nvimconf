@@ -30,16 +30,16 @@ lua require "user.indentline"
 lua require "user.alpha"
 lua require "user.whichkey"
 lua require "user.hop"
-lua require "user.matchup"
-lua require "user.numb"
-lua require "user.dial"
+lua require "user.matchup" --awosome thngs, but need more practice
+lua require "user.numb" --dont know why this
+lua require "user.dial" --interesting stuff, but increment work without any  plugin
 lua require "user.colorizer"
-lua require "user.spectre"
+lua require "user.spectre"--cool thing!
 lua require "user.zen-mode"
 lua require "user.neoscroll"
 lua require "user.todo-comments"
 lua require "user.bookmark"
-lua require "user.symbol-outline"
+lua require "user.symbol-outline"  --don't work, look vista plugin instead
 lua require "user.git-blame"
 lua require "user.gist"
 lua require "user.gitlinker"
