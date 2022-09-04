@@ -10,13 +10,13 @@ nnoremap <silent>]e :cn<Enter>
 "save buffer
 nnoremap <Leader>w :w!<Enter>
 "save and exit
-nnoremap <silent><Leader>x :x!<Enter>
+" nnoremap <silent><Leader>x :x!<Enter>
 "revert buffer
 nnoremap <silent><Leader>e :e!<Enter>
 "quit all
 nnoremap <Leader>! :qa!<Enter>
 "delete buffer & do not close window
-nnoremap <silent><Leader>d :bp<bar>sp<bar>bn<bar>bd!<Enter>
+nnoremap <silent><Leader>x :bp<bar>sp<bar>bn<bar>bd!<Enter>
 "delete buffer & close window
 nnoremap <silent><Leader>; :bd!<Enter>
 "only one window

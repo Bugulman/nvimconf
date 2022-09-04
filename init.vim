@@ -1,12 +1,10 @@
-" ##source ~/.config/nvim/configs/plugins.vim
 source ~/.config/nvim/configs/functions.vim
 source ~/.config/nvim/configs/core-sets.vim
 source ~/.config/nvim/configs/core-mappings.vim
 source ~/.config/nvim/configs/plugin-mappings.vim
 source ~/.config/nvim/configs/plugin-variables.vim
 source ~/.config/nvim/configs/autocmd.vim
-" ##source ~/.config/nvim/configs/theme.vim
-" source ~/.config/nvim/configs/telekasten.vim
+source ~/.config/nvim/configs/telekasten.vim
 lua require "user.hot-reload"
 " lua require "user.keymaps"
 lua require "user.plugins"
@@ -14,7 +12,6 @@ lua require "user.autocommands"
 lua require "user.colorscheme"
 lua require "user.cmp"
 lua require "user.navic"
-" lua require "user.lsp-inlayhints"
 lua require "user.lsp"
 lua require "user.telescope"
 lua require "user.treesitter"
@@ -31,8 +28,6 @@ lua require "user.alpha"
 lua require "user.whichkey"
 lua require "user.hop"
 lua require "user.matchup" --awosome thngs, but need more practice, work with blocks with %
-" -- [[TODO:]] try  to remove this
-lua require "user.numb" --dont know why this
 lua require "user.dial" --interesting stuff, but increment work without any  plugin
 lua require "user.colorizer"
 lua require "user.spectre"--cool thing!
@@ -47,26 +42,18 @@ lua require "user.git-blame" --not so useful add commit message at the end of li
 lua require "user.gist" --what is this
 lua require "user.gitlinker" --open github project in browser
 lua require "user.notify" --pull up massages
-" -- [[TODO:]] try  to remove this
-lua require "user.ts-context" --i don't like this
 lua require "user.registers"
 " TODO: need to test sniprun functionality
+lua require "user.iron"--looks very interesting for code testing, but i don't now how it work
 lua require "user.sniprun"--looks very interesting for code testing, but i don't now how it work
 lua require "user.functions"
-" lua require "user.illuminate"
 lua require "user.dap" --debug tools
-" -- [[TODO:]] try  to remove this
-lua require "user.lir"
+lua require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
 lua require "user.cybu" --pull up  messages for buffers
-" -- [[TODO:]] try  to remove this
-lua require "user.winbar" --no indea what is this
 lua require "user.options"
 lua require "user.nvim-webdev-icons"
 lua require "user.bfs"
-" -- [[TODO:]] try  to remove this
-lua require "user.crates"
 lua require "user.dressing" --i think this stuff onlu for developers, will see later
-lua require "user.tabout" --not so useful and dont work correctly
 lua require "user.fidget"
 lua require "user.browse" --AWESOME!!!!
 lua require "user.auto-session"
@@ -74,6 +61,4 @@ lua require "user.jaq" --run code, not shure about this
 lua require "user.surround"
 lua require "user.harpoon" --interesting thing, but no indea why use it. Telescope better for my
 lua require "user.lab" --interesting for short scripting
-" -- [[TODO:]] try  to remove this
-lua require "user.crates"
 lua require "user.vim-slash"
