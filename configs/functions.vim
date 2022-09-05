@@ -52,43 +52,43 @@ endfunction
 "         execute '!' . &keywordprg . " " . expand('<cword>')
 "     endif
 " endfunction
+" "
+" function! LinterStatus() abort
+"     let l:counts = ale#statusline#Count(bufnr(''))
+"     if l:counts.total == 0
+"         return ""
+"     endif
+"     let l:all_errors = l:counts.error + l:counts.style_error
+"     let l:all_non_errors = l:counts.total - l:all_errors
+"     return printf('[?:%d !:%d]', l:all_non_errors, l:all_errors)
+" endfunction
 "
-function! LinterStatus() abort
-    let l:counts = ale#statusline#Count(bufnr(''))
-    if l:counts.total == 0
-        return ""
-    endif
-    let l:all_errors = l:counts.error + l:counts.style_error
-    let l:all_non_errors = l:counts.total - l:all_errors
-    return printf('[?:%d !:%d]', l:all_non_errors, l:all_errors)
-endfunction
-
-function! DiagnosticStatus() abort
-    let l:info = get(b:, 'coc_diagnostic_info', {})
-    if empty(info) | return '' | endif
-    let l:error = info['error']
-    let l:warning = info['warning']
-    let l:information = info['information']
-    let l:hint = info['hint']
-    if (l:error == 0) && (l:warning == 0) && (l:information == 0) && (l:hint == 0)
-        return ""
-    endif
-    return printf('w:%d e:%d h:%d i:%d', l:warning, l:error, l:hint, l:information)
-endfunction
-
-function! GetKernelFromPipenv()
-    let a:kernel = tolower(system('basename $(pipenv --venv)'))
-    " Remove control characters (most importantly newline)
-    return substitute(a:kernel, '[[:cntrl:]]', '', 'g')
-endfunction
-
-function! ConnectToPipenvKernel()
-    let a:kernel = GetKernelFromPipenv()
-    call IPyConnect('--kernel', a:kernel, '--no-window')
-endfunction
-
-function! AddFilepathToSyspath()
-    let a:filepath = expand('%:p:h')
-    call IPyRun('import sys; sys.path.append("' . a:filepath . '")')
-    echo 'Added ' . a:filepath . ' to pythons sys.path'
-endfunction
+" function! DiagnosticStatus() abort
+"     let l:info = get(b:, 'coc_diagnostic_info', {})
+"     if empty(info) | return '' | endif
+"     let l:error = info['error']
+"     let l:warning = info['warning']
+"     let l:information = info['information']
+"     let l:hint = info['hint']
+"     if (l:error == 0) && (l:warning == 0) && (l:information == 0) && (l:hint == 0)
+"         return ""
+"     endif
+"     return printf('w:%d e:%d h:%d i:%d', l:warning, l:error, l:hint, l:information)
+" endfunction
+"
+" function! GetKernelFromPipenv()
+"     let a:kernel = tolower(system('basename $(pipenv --venv)'))
+"     " Remove control characters (most importantly newline)
+"     return substitute(a:kernel, '[[:cntrl:]]', '', 'g')
+" endfunction
+"
+" function! ConnectToPipenvKernel()
+"     let a:kernel = GetKernelFromPipenv()
+"     call IPyConnect('--kernel', a:kernel, '--no-window')
+" endfunction
+"
+" function! AddFilepathToSyspath()
+"     let a:filepath = expand('%:p:h')
+"     call IPyRun('import sys; sys.path.append("' . a:filepath . '")')
+"     echo 'Added ' . a:filepath . ' to pythons sys.path'
+" endfunction

@@ -90,8 +90,8 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
   --[[ use "zbirenbaum/copilot-cmp" ]]
-  use { "tzachar/cmp-tabnine", commit = "1a8fd2795e4317fd564da269cc64a2fa17ee854e", 
-run = "./install.sh" }
+	use "hrsh7th/nvim-cmp" --completion
+ 	use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
   -- Snippet
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -125,7 +125,7 @@ run = "./install.sh" }
   use "mickael-menu/zk-nvim"
 
   -- Color
-  use "NvChad/nvim-colorizer.lua"
+  use "norcalli/nvim-colorizer.lua"
   use "ziontee113/color-picker.nvim"
 
   -- Colorschemes
@@ -149,8 +149,10 @@ run = "./install.sh" }
   use "kyazdani42/nvim-web-devicons"
 
   -- Debugging
-  use "mfussenegger/nvim-dap"
+  use 'mfussenegger/nvim-dap-python'
+  use 'mfussenegger/nvim-dap'
   use "rcarriga/nvim-dap-ui"
+  use 'hkupty/iron.nvim'
   -- use "theHamsta/nvim-dap-virtual-text"
   -- use "Pocco81/DAPInstall.nvim"
 
@@ -169,7 +171,6 @@ run = "./install.sh" }
 
   -- File Explorer
   use "kyazdani42/nvim-tree.lua"
-  use "christianchiarulli/lir.nvim"
 
   -- Comment
   use "numToStr/Comment.nvim"
@@ -209,12 +210,13 @@ run = "./install.sh" }
   -- Editing Support
   use "windwp/nvim-autopairs"
   use "monaqa/dial.nvim"
-  use "nacro90/numb.nvim"
   use "andymass/vim-matchup"
   use "folke/zen-mode.nvim"
   -- use "Pocco81/true-zen.nvim"
   use "karb94/neoscroll.nvim"
   use "junegunn/vim-slash"
+  use 'renerocksai/telekasten.nvim'
+  use 'renerocksai/calendar-vim'
 
   -- Motion
   use "phaazon/hop.nvim"
@@ -222,16 +224,6 @@ run = "./install.sh" }
 
   -- Keybinding
   use "folke/which-key.nvim"
-
-  -- Java
-  use "mfussenegger/nvim-jdtls"
-
-  -- Rust
-  use { "christianchiarulli/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" }
-  use "Saecki/crates.nvim"
-
-  -- Typescript TODO: set this up, also add keybinds to ftplugin
-  use "jose-elias-alvarez/typescript.nvim"
 
   -- Markdown
   use {
@@ -269,7 +261,7 @@ run = "./install.sh" }
   -- use "folke/trouble.nvim"
   -- use "drybalka/tree-climber.nvim"
   -- use "phaazon/hop.nvim"
-  -- use { "michaelb/sniprun", run = "bash ./install.sh" }
+  use { "michaelb/sniprun", run = "bash ./install.sh" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins
