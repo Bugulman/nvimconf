@@ -1,13 +1,9 @@
 local iron = require("iron.core")
-
-iron.core.set_config {
-  preferred = {
-    python = "ipython",
-    clojure = "lein"
-  }
-}
-
 iron.setup {
+  preferred = {
+    python = 'ipython',
+    clojure='lein'
+  },
   config = {
     -- Whether a repl should be discarded or not
     scratch_repl = true,
