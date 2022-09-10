@@ -32,10 +32,5 @@ iron.setup {
     interrupt = "<leader>s<space>",
     exit = "<leader>sq",
     clear = "<leader>cl",
-  },
-  -- If the highlight is on, you can change how it looks
-  -- For the available options, check nvim_set_hl
-  highlight = {
-    italic = true
-  }
 }
+  

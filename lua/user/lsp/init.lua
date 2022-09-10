@@ -1,40 +1,45 @@
-M = {}
-local status_ok, _ = pcall(require, "lspconfig")
-if not status_ok then
-  return
+local opts = { noremap=true, silent=true }
+
+-- Use an on_attach function to only map the following keys
+-- after the language server attaches to the current buffer
+local on_attach = function(client, bufnr)
+    -- Enable completion triggered by <c-x><c-o>
+    vim.api.nvim_buf_set_option(bufnr, 'omnifunc', 'v:lua.vim.lsp.omnifunc')
+
+    local bufopts = { noremap=true, silent=true, buffer=bufnr }
+    vim.keymap.set('n', 'K', vim.lsp.buf.hover, bufopts)
+    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+    vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, bufopts)
+    vim.keymap.set('n', 'gr', vim.lsp.buf.references, bufopts)
+    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+    vim.keymap.set('n', '<space>K', vim.lsp.buf.signature_help, bufopts)
+    vim.keymap.set('n', 'gt', vim.lsp.buf.type_definition, bufopts)
+    vim.keymap.set('n', '<F2>', vim.lsp.buf.rename, bufopts)
+    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, bufopts)
+    vim.keymap.set('n', '<space>ca', vim.lsp.buf.code_action, bufopts)
+    vim.keymap.set('n', '<space>f', vim.lsp.buf.formatting, bufopts)
+    vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
+    vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
+    vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
 end
 
-M.server_capabilities = function()
-  local active_clients = vim.lsp.get_active_clients()
-  local active_client_map = {}
-
-  for index, value in ipairs(active_clients) do
-    active_client_map[value.name] = index
-  end
-
-  vim.ui.select(vim.tbl_keys(active_client_map), {
-    prompt = "Select client:",
-    format_item = function(item)
-      return "capabilites for: " .. item
-    end,
-  }, function(choice)
-    -- print(active_client_map[choice])
-    print(vim.inspect(vim.lsp.get_active_clients()[active_client_map[choice]].server_capabilities.executeCommandProvider))
-    vim.pretty_print(vim.lsp.get_active_clients()[active_client_map[choice]].server_capabilities)
-  end)
+-- this part is telling Neovim to use the lsp server
+local servers = { 'pyright', 'tsserver', 'jdtls' }
+for _, lsp in pairs(servers) do
+    require('lspconfig')[lsp].setup {
+        on_attach = on_attach,
+        flags = {
+          debounce_text_changes = 150,
+        }
+    }
 end
 
-require "user.lsp.lsp-signature"
--- require "user.lsp.lsp-installer"
-require("user.lsp.mason")
-require("user.lsp.handlers").setup()
-require "user.lsp.null-ls"
+-- this is for diagnositcs signs on the line number column
+-- use this to beautify the plain E W signs to more fun ones
+-- !important nerdfonts needs to be setup for this to work in your terminal
+local signs = { Error = " ", Warn = " ", Hint = " ", Info = " " } 
 
-local l_status_ok, lsp_lines = pcall(require, "lsp_lines")
-if not l_status_ok then
-  return
+for type, icon in pairs(signs) do
+    local hl = "DiagnosticSign" .. type
+    vim.fn.sign_define(hl, { text = icon, texthl= hl, numhl = hl })
 end
-
-lsp_lines.setup()
-
-return M
