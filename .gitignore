@@ -3,3 +3,5 @@ env/
 deploy.sh
 pack/
 node_modules/*
+
+plugin/packer_compiled.lua

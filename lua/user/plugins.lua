@@ -149,9 +149,6 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-web-devicons"
 
   -- Debugging
-  use 'mfussenegger/nvim-dap-python'
-  use 'mfussenegger/nvim-dap'
-  use "rcarriga/nvim-dap-ui"
   use 'hkupty/iron.nvim'
   -- use "theHamsta/nvim-dap-virtual-text"
   -- use "Pocco81/DAPInstall.nvim"

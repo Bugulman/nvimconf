@@ -47,8 +47,6 @@ lua require "user.registers"
 lua require "user.iron"--looks very interesting for code testing, but i don't now how it work
 lua require "user.sniprun"--looks very interesting for code testing, but i don't now how it work
 lua require "user.functions"
-lua require "user.dap" --debug tools
-lua require('dap-python').setup('~/.virtualenvs/debugpy/bin/python')
 lua require "user.cybu" --pull up  messages for buffers
 lua require "user.options"
 lua require "user.nvim-webdev-icons"
