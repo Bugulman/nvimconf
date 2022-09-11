@@ -58,7 +58,7 @@ let g:NERDTreeGitStatusIndicatorMapCustom = {
 let g:limelight_conceal_ctermfg = 'gray'
 let g:limelight_conceal_guifg = 'gray'
 " SnipMate settings
-let g:UltiSnipsSnippetDirectories=[$HOME.'/.vim/bundle/vim-snippets/UltiSnips']
+let g:UltiSnipsSnippetDirectories=[$HOME.'/.local/share/nvim/site/pack/packer/start/vim-snippets/UltiSnips']
 " Trigger configuration. Do not use <tab> if you use https://github.com/Valloric/YouCompleteMe.
 let g:UltiSnipsExpandTrigger="<tab>"
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
