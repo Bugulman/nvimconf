@@ -62,15 +62,15 @@ set guicursor=
 " set statusline+=%3*\ %F
 " set statusline+=%5*
 " set statusline+=\ %{CurrentGitBranch()}
-set statusline+=%4*\ %m
-set statusline+=%3*
-set statusline+=%=
-set statusline+=%4*\%{DiagnosticStatus()}
-set statusline+=%6*\%{GitStatus()}
-set statusline+=%3*\ \ 
-set statusline+=%2*\%l
-set statusline+=%7*\:
-set statusline+=%2*\%L
-set statusline+=%7*\::
-set statusline+=%2*\%c
-set statusline+=%3*\ \%*
+" set statusline+=%4*\ %m
+" set statusline+=%3*
+" set statusline+=%=
+" set statusline+=%4*\%{DiagnosticStatus()}
+" set statusline+=%6*\%{GitStatus()}
+" set statusline+=%3*\ \ 
+" set statusline+=%2*\%l
+" set statusline+=%7*\:
+" set statusline+=%2*\%L
+" set statusline+=%7*\::
+" set statusline+=%2*\%c
+" set statusline+=%3*\ \%*

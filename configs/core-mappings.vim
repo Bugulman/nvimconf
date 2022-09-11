@@ -10,13 +10,13 @@ nnoremap <silent>]e :cn<Enter>
 "save buffer
 nnoremap <Leader>w :w!<Enter>
 "save and exit
-nnoremap <silent><Leader>x :x!<Enter>
+" nnoremap <silent><Leader>x :x!<Enter>
 "revert buffer
 nnoremap <silent><Leader>e :e!<Enter>
 "quit all
 nnoremap <Leader>! :qa!<Enter>
 "delete buffer & do not close window
-nnoremap <silent><Leader>d :bp<bar>sp<bar>bn<bar>bd!<Enter>
+nnoremap <silent><Leader>x :bp<bar>sp<bar>bn<bar>bd!<Enter>
 "delete buffer & close window
 nnoremap <silent><Leader>; :bd!<Enter>
 "only one window
@@ -39,10 +39,12 @@ nnoremap <A-j> <C-w>j
 nnoremap <A-k> <C-w>k
 nnoremap <A-l> <C-w>l
 "terminal open
-nnoremap <silent><Leader>t :ToggleTerm size=80 direction=vertical<cr>
+nnoremap <silent><Leader>v :vsplit term://bash<Enter>:norm A<Enter>
+nnoremap <silent><Leader>t :split term://bash<Enter>:norm A<Enter>
+"terminal close
 tnoremap <silent><A-;> <C-\><C-n>:bd!<Enter>
 " working with buffer
-nmap <Tab> :bnext<CR>
+" nmap <Tab> :bnext<CR>
 nmap <S-Tab> :bprevious<CR>
 " list all current buffers
 nnoremap <leader>bb :ls<CR>:b<Space>
@@ -54,14 +56,13 @@ if exists('&inccommand')
 endif
 "
 " quick subtitutions
-nnoremap <leader>s :%s/
-nnoremap <leader>i :%g/
+" nnoremap <leader>s :%s/
+" nnoremap <leader>i :%g/
 " quick resize widnows
 nmap <C-Right> :vertical resize -1<CR>
 nmap <C-Left> :vertical resize +1<CR>
 nmap <C-Down> :resize +1<CR>
-nmap <C-Up> :resize -1<CR>
-"=====================================================
+nmap <C-Up> :resize -1<CR>"=====================================================
 " " CTRL-C and CTRL-Insert are Copy
  vnoremap <C-C> "+y
  vnoremap <y-y> "+yy

@@ -7,7 +7,7 @@ end
 -- ft_to_parser.motoko = "typescript"
 
 configs.setup {
-  ensure_installed = { "python"} , -- one of "all" or a list of languages
+  ensure_installed = "all", -- one of "all" or a list of languages
   sync_install = false, -- install languages synchronously (only applied to `ensure_installed`)
   ignore_install = { "" }, -- List of parsers to ignore installing
   matchup = {
@@ -27,7 +27,7 @@ configs.setup {
   autopairs = {
     enable = true,
   },
-  indent = { enable = true, disable = {"C", "python", "css", "rust" } },
+  indent = { enable = true, disable = { "python", "css", "rust" } },
   context_commentstring = {
     enable = true,
     enable_autocmd = false,

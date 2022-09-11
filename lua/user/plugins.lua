@@ -56,7 +56,7 @@ return packer.startup(function(use)
 
   -- LSP
   use "neovim/nvim-lspconfig" -- enable LSP
-  use "williamboman/nvim-lsp-installer" -- simple to use language server installer
+  -- use "williamboman/nvim-lsp-installer" -- simple to use language server installer
   use "williamboman/mason.nvim"
   use "williamboman/mason-lspconfig.nvim"
   use "jose-elias-alvarez/null-ls.nvim" -- for formatters and linters
@@ -64,16 +64,22 @@ return packer.startup(function(use)
   use "SmiteshP/nvim-navic"
   use "simrat39/symbols-outline.nvim"
   use "b0o/SchemaStore.nvim"
+  -- use "github/copilot.vim"
+  --[[ use { ]]
+  --[[   "zbirenbaum/copilot.lua", ]]
+  --[[   event = { "VimEnter" }, ]]
+  --[[   config = function() ]]
+  --[[     vim.defer_fn(function() ]]
+  --[[       require "user.copilot" ]]
+  --[[     end, 100) ]]
+  --[[   end, ]]
+  --[[ } ]]
   --[[ use "RRethy/vim-illuminate" ]]
   use "j-hui/fidget.nvim"
   use "lvimuser/lsp-inlayhints.nvim"
   -- use "simrat39/inlay-hints.nvim"
-  -- use({
-  -- "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-  -- config = function()
-  --   require("lsp_lines").setup()
-  -- end,
-  -- }) 
+  use "https://git.sr.ht/~whynothugo/lsp_lines.nvim"
+
   -- Completion
   use "christianchiarulli/nvim-cmp"
   use "hrsh7th/cmp-buffer" -- buffer completions
@@ -83,8 +89,9 @@ return packer.startup(function(use)
   use "hrsh7th/cmp-nvim-lsp"
   use "hrsh7th/cmp-emoji"
   use "hrsh7th/cmp-nvim-lua"
-  use "hrsh7th/nvim-cmp" --completion
-  use {'tzachar/cmp-tabnine', after = "nvim-cmp", run='powershell ./install.ps1', requires = 'hrsh7th/nvim-cmp'}
+  --[[ use "zbirenbaum/copilot-cmp" ]]
+	use "hrsh7th/nvim-cmp" --completion
+ 	use {'tzachar/cmp-tabnine', run='./install.sh', requires = 'hrsh7th/nvim-cmp'}
 
   -- Snippet
   use "L3MON4D3/LuaSnip" --snippet engine
@@ -118,7 +125,7 @@ return packer.startup(function(use)
   use "mickael-menu/zk-nvim"
 
   -- Color
-  use "NvChad/nvim-colorizer.lua"
+  use "norcalli/nvim-colorizer.lua"
   use "ziontee113/color-picker.nvim"
 
   -- Colorschemes
@@ -142,8 +149,7 @@ return packer.startup(function(use)
   use "kyazdani42/nvim-web-devicons"
 
   -- Debugging
-  use "mfussenegger/nvim-dap"
-  use "rcarriga/nvim-dap-ui"
+  use 'hkupty/iron.nvim'
   -- use "theHamsta/nvim-dap-virtual-text"
   -- use "Pocco81/DAPInstall.nvim"
 
@@ -152,8 +158,7 @@ return packer.startup(function(use)
   -- use "tiagovla/scope.nvim"
 
   -- Statusline
-  -- use "christianchiarulli/lualine.nvim"
-  use "nvim-lualine/lualine.nvim"
+  use "christianchiarulli/lualine.nvim"
 
   -- Startup
   use "goolord/alpha-nvim"
@@ -163,7 +168,6 @@ return packer.startup(function(use)
 
   -- File Explorer
   use "kyazdani42/nvim-tree.lua"
-  use "christianchiarulli/lir.nvim"
 
   -- Comment
   use "numToStr/Comment.nvim"
@@ -203,12 +207,13 @@ return packer.startup(function(use)
   -- Editing Support
   use "windwp/nvim-autopairs"
   use "monaqa/dial.nvim"
-  use "nacro90/numb.nvim"
   use "andymass/vim-matchup"
   use "folke/zen-mode.nvim"
   -- use "Pocco81/true-zen.nvim"
   use "karb94/neoscroll.nvim"
   use "junegunn/vim-slash"
+  use 'renerocksai/telekasten.nvim'
+  use 'renerocksai/calendar-vim'
 
   -- Motion
   use "phaazon/hop.nvim"
@@ -216,16 +221,6 @@ return packer.startup(function(use)
 
   -- Keybinding
   use "folke/which-key.nvim"
-
-  -- Java
-  use "mfussenegger/nvim-jdtls"
-
-  -- Rust
-  use { "christianchiarulli/rust-tools.nvim", branch = "modularize_and_inlay_rewrite" }
-  use "Saecki/crates.nvim"
-
-  -- Typescript TODO: set this up, also add keybinds to ftplugin
-  use "jose-elias-alvarez/typescript.nvim"
 
   -- Markdown
   use {
@@ -263,7 +258,7 @@ return packer.startup(function(use)
   -- use "folke/trouble.nvim"
   -- use "drybalka/tree-climber.nvim"
   -- use "phaazon/hop.nvim"
-  -- use { "michaelb/sniprun", run = "bash ./install.sh" }
+  use { "michaelb/sniprun", run = "bash ./install.sh" }
 
   -- Automatically set up your configuration after cloning packer.nvim
   -- Put this at the end after all plugins

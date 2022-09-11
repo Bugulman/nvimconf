@@ -9,26 +9,9 @@ if not status_ok_1 then
 end
 
 local servers = {
-  "cssls",
-  "cssmodules_ls",
-  "emmet_ls",
-  "html",
-  "jdtls",
-  "jsonls",
-  "solc",
-  "solidity_ls",
   "sumneko_lua",
-  "tflint",
-  "terraformls",
-  "tsserver",
   "pyright",
   "yamlls",
-  "bashls",
-  "clangd",
-  "rust_analyzer",
-  "taplo",
-  "zk@v0.10.1",
-  "lemminx"
 }
 
 local settings = {
@@ -65,11 +48,6 @@ for _, server in pairs(servers) do
 
   server = vim.split(server, "@")[1]
 
-  if server == "jsonls" then
-    local jsonls_opts = require "user.lsp.settings.jsonls"
-    opts = vim.tbl_deep_extend("force", jsonls_opts, opts)
-  end
-
   if server == "yamlls" then
     local yamlls_opts = require "user.lsp.settings.yamlls"
     opts = vim.tbl_deep_extend("force", yamlls_opts, opts)
@@ -96,45 +74,9 @@ for _, server in pairs(servers) do
     goto continue
   end
 
-  if server == "tsserver" then
-    local tsserver_opts = require "user.lsp.settings.tsserver"
-    opts = vim.tbl_deep_extend("force", tsserver_opts, opts)
-  end
-
   if server == "pyright" then
     local pyright_opts = require "user.lsp.settings.pyright"
     opts = vim.tbl_deep_extend("force", pyright_opts, opts)
-  end
-
-  if server == "solc" then
-    local solc_opts = require "user.lsp.settings.solc"
-    opts = vim.tbl_deep_extend("force", solc_opts, opts)
-  end
-
-  if server == "emmet_ls" then
-    local emmet_ls_opts = require "user.lsp.settings.emmet_ls"
-    opts = vim.tbl_deep_extend("force", emmet_ls_opts, opts)
-  end
-
-  if server == "zk" then
-    local zk_opts = require "user.lsp.settings.zk"
-    opts = vim.tbl_deep_extend("force", zk_opts, opts)
-  end
-
-  if server == "jdtls" then
-    goto continue
-  end
-
-  if server == "rust_analyzer" then
-    local rust_opts = require "user.lsp.settings.rust"
-    -- opts = vim.tbl_deep_extend("force", rust_opts, opts)
-    local rust_tools_status_ok, rust_tools = pcall(require, "rust-tools")
-    if not rust_tools_status_ok then
-      return
-    end
-
-    rust_tools.setup(rust_opts)
-    goto continue
   end
 
   lspconfig[server].setup(opts)
