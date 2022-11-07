@@ -44,7 +44,7 @@ lua require "user.gitlinker" --open github project in browser
 lua require "user.notify" --pull up massages
 lua require "user.registers"
 " TODO: need to test sniprun functionality
-" lua require "user.iron"--looks very interesting for code testing, but i don't now how it work
+lua require "user.iron"--looks very interesting for code testing, but i don't now how it work
 lua require "user.sniprun"--looks very interesting for code testing, but i don't now how it work
 lua require "user.functions"
 lua require "user.cybu" --pull up  messages for buffers

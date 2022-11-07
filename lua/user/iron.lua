@@ -1,10 +1,6 @@
 local iron = require("iron.core")
 
 iron.setup {
-  preferred = {
-    python = 'ipython',
-    clojure='lein'
-  },
   config = {
     -- Whether a repl should be discarded or not
     scratch_repl = true,
@@ -12,7 +8,15 @@ iron.setup {
     repl_definition = {
       sh = {
         command = {"zsh"}
+      },
+      python = {
+        command = { "ipython" },
+        format = require("iron.fts.common").bracketed_paste,
       }
+    },
+    preffered ={
+      python="ipython",
+      clojure = "lein"
     },
     -- How the repl window will be displayed
     -- See below for more information
@@ -20,17 +24,23 @@ iron.setup {
   },
   -- Iron doesn't set keymaps by default anymore.
   -- You can set them here or manually add keymaps to the functions in iron.core
-    send_motion = "<leader>sc",
-    visual_send = "<leader>sc",
-    send_file = "<C-f>",
-    send_line = "<leader>sl",
-    send_mark = "<leader>sm",
-    mark_motion = "<leader>mc",
-    mark_visual = "<leader>mc",
-    remove_mark = "<leader>md",
-    cr = "<leader>s<cr>",
-    interrupt = "<leader>s<space>",
-    exit = "<leader>sq",
-    clear = "<leader>cl",
-}
-  
+  keymaps = {
+    send_motion = "<space>sc",
+    visual_send = "<space>sc",
+    send_file = "<space>sf",
+    send_line = "<space>sl",
+    send_mark = "<space>sm",
+    mark_motion = "<space>mc",
+    mark_visual = "<space>mc",
+    remove_mark = "<space>md",
+    cr = "<space>s<cr>",
+    interrupt = "<space>s<space>",
+    exit = "<space>sq",
+    clear = "<space>cl",
+  },
+  -- If the highlight is on, you can change how it looks
+  -- For the available options, check nvim_set_hl
+  highlight = {
+    italic = true
+  }
+} 
