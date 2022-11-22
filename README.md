@@ -12,8 +12,7 @@ Run the following `Set-ExecutionPolicy Bypass -Scope Process -Force;Run .\Chocol
 `choco install ripgrep`
 `choco install fd`
 `choco install universal-ctags`
-LSP into neovim
-`:CocInstall coc-python`
+`choco install mingw` this thing for treesitter in windows
 
 There are two way work with Ipython
 with ipy plug
