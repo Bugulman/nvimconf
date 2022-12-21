@@ -169,18 +169,18 @@ local mappings = {
   --   v = { "<cmd>vsplit<cr>", "VSplit" },
   -- },
 
-  s = {
-    name = "Session",
-    s = { "<cmd>SaveSession<cr>", "Save" },
-    r = { "<cmd>RestoreSession<cr>", "Restore" },
-    x = { "<cmd>DeleteSession<cr>", "Delete" },
-    f = { "<cmd>Autosession search<cr>", "Find" },
-    d = { "<cmd>Autosession delete<cr>", "Find Delete" },
-    -- a = { ":SaveSession<cr>", "test" },
+  --[[ s = { ]]
+  --[[   name = "iron", ]]
+  --[[   s = { "<cmd>SaveSession<cr>", "Save" }, ]]
+  --[[   r = { "<cmd>RestoreSession<cr>", "Restore" }, ]]
+  --[[   x = { "<cmd>DeleteSession<cr>", "Delete" }, ]]
+  --[[   f = { "<cmd>Autosession search<cr>", "Find" }, ]]
+  --[[   d = { "<cmd>Autosession delete<cr>", "Find Delete" }, ]]
+  --[[   -- a = { ":SaveSession<cr>", "test" }, ]]
     -- a = { ":RestoreSession<cr>", "test" },
     -- a = { ":RestoreSessionFromFile<cr>", "test" },
     -- a = { ":DeleteSession<cr>", "test" },
-  },
+  --[[ }, ]]
 
   r = {
     name = "Replace",
@@ -306,22 +306,22 @@ local mappings = {
   --   b = { "<cmd>lua require('surround').toggle_brackets()<cr>", "Brackets" },
   -- },
 
-  S = {
-    -- name = "Session",
-    -- s = { "<cmd>SaveSession<cr>", "Save" },
-    -- l = { "<cmd>LoadLastSession!<cr>", "Load Last" },
-    -- d = { "<cmd>LoadCurrentDirSession!<cr>", "Load Last Dir" },
-    -- f = { "<cmd>Telescope sessions save_current=false<cr>", "Find Session" },
-    name = "SnipRun",
-    c = { "<cmd>SnipClose<cr>", "Close" },
-    f = { "<cmd>%SnipRun<cr>", "Run File" },
-    i = { "<cmd>SnipInfo<cr>", "Info" },
-    m = { "<cmd>SnipReplMemoryClean<cr>", "Mem Clean" },
-    r = { "<cmd>SnipReset<cr>", "Reset" },
-    t = { "<cmd>SnipRunToggle<cr>", "Toggle" },
-    x = { "<cmd>SnipTerminate<cr>", "Terminate" },
-  },
-
+  --[[ S = { ]]
+  --[[   -- name = "Session", ]]
+  --[[   -- s = { "<cmd>SaveSession<cr>", "Save" }, ]]
+  --[[   -- l = { "<cmd>LoadLastSession!<cr>", "Load Last" }, ]]
+  --[[   -- d = { "<cmd>LoadCurrentDirSession!<cr>", "Load Last Dir" }, ]]
+  --[[   -- f = { "<cmd>Telescope sessions save_current=false<cr>", "Find Session" }, ]]
+  --[[   name = "SnipRun", ]]
+  --[[   c = { "<cmd>SnipClose<cr>", "Close" }, ]]
+  --[[   f = { "<cmd>%SnipRun<cr>", "Run File" }, ]]
+  --[[   i = { "<cmd>SnipInfo<cr>", "Info" }, ]]
+  --[[   m = { "<cmd>SnipReplMemoryClean<cr>", "Mem Clean" }, ]]
+  --[[   r = { "<cmd>SnipReset<cr>", "Reset" }, ]]
+  --[[   t = { "<cmd>SnipRunToggle<cr>", "Toggle" }, ]]
+  --[[   x = { "<cmd>SnipTerminate<cr>", "Terminate" }, ]]
+  --[[ }, ]]
+  --[[]]
   t = {
     name = "Terminal",
     ["1"] = { ":1ToggleTerm<cr>", "1" },

@@ -54,7 +54,7 @@ lua require "user.bfs"
 lua require "user.dressing" --i think this stuff onlu for developers, will see later
 lua require "user.fidget"
 lua require "user.browse" --AWESOME!!!!
-lua require "user.auto-session"
+" lua require "user.auto-session"
 lua require "user.jaq" --run code, not shure about this
 lua require "user.surround"
 lua require "user.harpoon" --interesting thing, but no indea why use it. Telescope better for my

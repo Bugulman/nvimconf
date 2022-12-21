@@ -47,19 +47,8 @@ nnoremap <leader>fg <cmd>Telescope live_grep<cr>
 nnoremap <leader>fb <cmd>Telescope buffers<cr>
 nnoremap <leader>fh <cmd>Telescope help_tags<cr>
 nnoremap <leader>of <cmd>Telescope oldfiles<cr>
-map <leader>g :Goyo<CR>
-nmap <leader>h :RainbowParentheses!!<CR>
-nmap <leader>j :set filetype=journal<CR>
+" map <leader>g :Goyo<CR>
 nmap <leader>p :set filetype=pov<CR>
-nmap <leader>k :ColorToggle<CR>
-nmap <leader>l :Limelight!!<CR>
-xmap <leader>l :Limelight!!<CR>
-" for work with IPython
-nmap <silent> <leader>jqt :RunQtConsole<Enter>
-nmap <silent> <leader>jk :IPython<Space>--existing<Space>--no-window<Enter>
-nmap <silent> <leader>jc <Plug>(IPy-RunCell)
-nmap <silent> <C-S> <Plug>(IPy-Run)
-nmap <silent> <leader>ja <Plug>(IPy-RunAll)
 " telekasten
 nnoremap <leader>zf :lua require('telekasten').find_notes()<CR>
 nnoremap <leader>zd :lua require('telekasten').find_daily_notes()<CR>
@@ -113,38 +102,8 @@ hi tkTag ctermfg=175 guifg=#d3869B
 nnoremap <leader>S <cmd>lua require('spectre').open()<CR>
 
 "search current word
-nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
-vnoremap <leader>s <esc>:lua require('spectre').open_visual()<CR>
+" nnoremap <leader>sw <cmd>lua require('spectre').open_visual({select_word=true})<CR>
+" vnoremap <leader>s <esc>:lua require('spectre').open_visual()<CR>
 "  search in current file
-nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
-" run command :Spectre
-
-" jank/vim-test and mfussenegger/nvim-dap
-nnoremap <leader>dh :lua require'dap'.toggle_breakpoint()<CR>
-nnoremap <S-k> :lua require'dap'.step_out()<CR>
-nnoremap <S-l> :lua require'dap'.step_into()<CR>
-nnoremap <S-j> :lua require'dap'.step_over()<CR>
-nnoremap <leader>ds :lua require'dap'.stop()<CR>
-nnoremap <leader>dn :lua require'dap'.continue()<CR>
-nnoremap <leader>dk :lua require'dap'.up()<CR>
-nnoremap <leader>dj :lua require'dap'.down()<CR>
-nnoremap <leader>d_ :lua require'dap'.disconnect();require'dap'.stop();require'dap'.run_last()<CR>
-nnoremap <leader>dr :lua require'dap'.repl.open({}, 'vsplit')<CR><C-w>l
-nnoremap <leader>di :lua require'dap.ui.variables'.hover()<CR>
-vnoremap <leader>di :lua require'dap.ui.variables'.visual_hover()<CR>
-nnoremap <leader>d? :lua require'dap.ui.variables'.scopes()<CR>
-nnoremap <leader>de :lua require'dap'.set_exception_breakpoints({"all"})<CR>
-nnoremap <leader>da :lua require'debugHelper'.attach()<CR>
-nnoremap <leader>dA :lua require'debugHelper'.attachToRemote()<CR>
-nnoremap <leader>di :lua require'dap.ui.widgets'.hover()<CR>
-nnoremap <leader>d? :lua local widgets=require'dap.ui.widgets';widgets.centered_float(widgets.scopes)<CR>
-
-
-nnoremap <leader>dd :TestNearest -strategy=jest<CR>
-function! JestStrategy(cmd)
-  let testName = matchlist(a:cmd, '\v -t ''(.*)''')[1]
-  let fileName = matchlist(a:cmd, '\v'' -- (.*)$')[1]
-  call luaeval("require'debugHelper'.debugJest([[" . testName . "]], [[" . fileName . "]])")
-endfunction      
-let g:test#custom_strategies = {'jest': function('JestStrategy')}
+" nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
 
