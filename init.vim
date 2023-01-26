@@ -28,7 +28,7 @@ lua require "user.alpha"
 lua require "user.whichkey"
 lua require "user.hop"
 lua require "user.matchup" --awosome thngs, but need more practice, work with blocks with %
-lua require "user.dial" --interesting stuff, but increment work without any  plugin
+" lua require "user.dial" --interesting stuff, but increment work without any  plugin
 lua require "user.colorizer"
 lua require "user.spectre"--cool thing!
 lua require "user.zen-mode"

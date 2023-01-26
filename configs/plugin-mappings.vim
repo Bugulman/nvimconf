@@ -107,3 +107,30 @@ nnoremap <leader>S <cmd>lua require('spectre').open()<CR>
 "  search in current file
 " nnoremap <leader>sp viw:lua require('spectre').open_file_search()<cr>
 
+" Hop
+    "normal
+        "up
+        nmap K :HopLineStartBC<CR>
+        "down
+        nmap J :HopLineStartAC<CR>
+        "left
+        nmap H :HopWordCurrentLineBC<CR>
+        "right
+        nmap L :HopWordCurrentLineAC<CR>
+        "char anywhere
+        nmap f :HopChar1<CR>
+        "pattern anywhere
+        nmap s :HopPattern<CR>
+    "visual
+        "up
+        vmap K <cmd>HopLineStartBC<CR>
+        "down
+        vmap J <cmd>HopLineStartAC<CR>
+        "left
+        vmap H <cmd>HopWordCurrentLineBC<CR>
+        "right
+        vmap L <cmd>HopWordCurrentLineAC<CR>
+        "char anywhere
+        vmap f <cmd>HopChar1<CR>
+        "pattern anywhere
+        vmap s <cmd>HopPattern<CR>

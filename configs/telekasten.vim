@@ -1,5 +1,5 @@
 lua << END
-local home = vim.fn.expand("D:/soft/obsidian/zettelkasten")
+local home = vim.fn.expand("~/Documents/My_md_zettel")
 -- NOTE for Windows users:
 -- - don't use Windows
 -- - try WSL2 on Windows and pretend you're on Linux

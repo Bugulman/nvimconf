@@ -40,7 +40,7 @@ vim.cmd "autocmd! TermOpen term://* lua set_terminal_keymaps()"
 
 local Terminal = require("toggleterm.terminal").Terminal
 local lazygit = Terminal:new {
-  cmd = "lazygit",
+  cmd = "lazygit-gm ",
   hidden = true,
   direction = "float",
   float_opts = {
