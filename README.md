@@ -1,8 +1,6 @@
 Dont forget set 
 `pip install pynvim`
 
-# recomend install telescope
-
 First of all 'install' choco from sitek
 
 Use the script below, determine where you might want Chocolatey installed if it is not to C:\ProgramData\chocoportable.
@@ -12,27 +10,27 @@ Run the following `Set-ExecutionPolicy Bypass -Scope Process -Force;Run .\Chocol
 `choco install ripgrep`
 `choco install fd`
 `choco install universal-ctags`
-LSP into neovim
-`:CocInstall coc-python`
 
-There are two way work with Ipython
-with ipy plug
-*	open .py-file with nvim
-*	Press <leader>jqt to open qtconsole
-*	Press <leader>jk to connect to just opened kernel
-*	Use <leader>jc to run cell
-*	Use <leader>ja to run all cells
-<<<<<<< Updated upstream
-But before you should install jupyter, pyqt5, qtconsole and test in in cmd
+# hfcc
+Почему то дефолтные настройки на винде не хотят работать.
+По сути это обычный запрос по [[API]] поэтому просто делам обход ssl и даем ссылку на json файл, где хранится запрос.
 
-Если все таки выдает ошибку на функцию IPyConnect то нужно выполнить команду :UpdateRemotePlugins``
-=======
-But before you should install jupyter, pyqt5 and test in in cmd
-Need clean coc config files and del all stuff
->>>>>>> Stashed changes
+```lua
+  local f = assert(io.open("C:/Users/reg16/inputs.json", "w"))
+  f:write(json.encode(request_body))
+  f:close()
+end
 
-## if need you need icons into nerdtree, then set into PowerShell
-*	`Set-ExecutionPolicy Unrestricted`
-*	clone repo `https://github.com/ryanoasis/nerd-fonts.git`
-*	set into shell `.\install.ps1 Hack`
-*	`Set-ExecutionPolicy Restricted`
+M.fetch_suggestion = function(request, callback)
+  local api_token = config.get().api_token
+  if api_token == "" then
+    vim.notify("[HFcc] api token is empty, suggestion might not work", vim.log.levels.WARN)
+  end
+  local query =
+      'curl "' .. get_url() .. '" \z
+      --ssl-no-revoke \z
+      -H "Content-type: application/json" \z
+      -H "Authorization: Bearer ' .. api_token .. '" \z
+      -d@C:/Users/reg16/inputs.json'
+ 
+``` 
