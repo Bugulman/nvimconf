@@ -32,12 +32,15 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter",
     opts = overrides.treesitter,
   },
-
   {
     "nvim-tree/nvim-tree.lua",
     opts = overrides.nvimtree,
   },
+  {
+    "junegunn/vim-easy-align",
+          lazy = false,
 
+  },
   -- Install a plugin
   {
     "max397574/better-escape.nvim",
