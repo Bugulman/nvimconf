@@ -17,6 +17,7 @@ M.general = {
     ["<m-o>"] = { "<cmd>BrowseBookmarks<cr>", desc = "browse_bookmarks" },
     ["<leader>s"] = { "<cmd>BrowseInputSearch<cr>", desc = "google search" },
     ["<leader>q"] = { ":q<cr>", desc = "close window" },
+    ["<leader>fw"] = { ":Telescope live_grep<cr>", desc = "find word" },
   },
 }
 
