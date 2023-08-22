@@ -113,12 +113,17 @@ local plugins = {
           provider = 'brave',
      },
      {
-          'pappasam/nvim-repl',
-          dependencies = { "tpope/vim-repeat" },
-          repl_filetype_commands = {
-               python = "ipython --no-autoindent",
-          },
-          lazy = false,
+          "Vigemus/iron.nvim",
+         keys = {
+             send_motion = "]n",
+             visual_send = "]n",
+             send_file = "<space>sf",
+             send_line = "<space>sl",
+             send_mark = "<space>sw",
+             mark_motion = "<space>mc",
+             mark_visual = "<space>mc",
+            clear = "<space>cl"
+            }
      },
     {
   "phaazon/hop.nvim",
@@ -150,7 +155,7 @@ local plugins = {
     },
   },
 },
-{ "karb94/neoscroll.nvim", lazy = false, opts = {} }
+  { "karb94/neoscroll.nvim", lazy = false, opts = {} },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
