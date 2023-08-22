@@ -15,7 +15,7 @@ M.treesitter = {
     -- disable = {
     --   "python"
     -- },
-  },
+  }
 }
 
 M.mason = {
@@ -31,8 +31,12 @@ M.nvimtree = {
   git = {
     enable = true,
   },
-
+  update_focused_file = {
+    enable = true,
+    update_root = true,
+  },
   renderer = {
+    root_folder_label = true,
     highlight_git = true,
     icons = {
       show = {
