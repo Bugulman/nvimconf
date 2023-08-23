@@ -5,7 +5,7 @@
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
- vim.api.nvim_create_autocmd("FileType", {
+vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("FixNavigatorCommentString", { clear = true }),
   callback = function(ev)
     vim.bo[ev.buf].commentstring = "-- %s"
@@ -13,7 +13,7 @@
   pattern = { "inc", "data" },
 })
 
-vim.bo.commentstring = '-- %s'
+-- vim.bo.commentstring = '-- %s'
 
 local bookmarks = {
     ['work'] = {

@@ -114,16 +114,28 @@ local plugins = {
      },
      {
           "Vigemus/iron.nvim",
-         keys = {
-             send_motion = "]n",
-             visual_send = "]n",
-             send_file = "<space>sf",
-             send_line = "<space>sl",
-             send_mark = "<space>sw",
-             mark_motion = "<space>mc",
-             mark_visual = "<space>mc",
-            clear = "<space>cl"
-            }
+          lazy = false,
+        config = function()
+          local iron = require "iron.core"
+            iron.setup {
+              config = {
+                -- Whether a repl should be discarded or not
+                should_map_plug = false,
+                scratch_repl = true,
+                -- Your repl definitions come here
+                repl_definition = {
+                  python = {
+                    command = { "ipython" },
+                    format = require("iron.fts.common").bracketed_paste,
+                  }
+                },
+                preffered ={
+                  -- python="ipython"
+                  -- clojure = "lein"
+                },
+              },
+                  }
+                    end,
      },
     {
   "phaazon/hop.nvim",
