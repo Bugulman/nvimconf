@@ -113,30 +113,9 @@ local plugins = {
           provider = 'brave',
      },
      {
-          "Vigemus/iron.nvim",
-          lazy = false,
-        config = function()
-          local iron = require "iron.core"
-            iron.setup {
-              config = {
-                -- Whether a repl should be discarded or not
-                should_map_plug = false,
-                scratch_repl = true,
-                -- Your repl definitions come here
-                repl_definition = {
-                  python = {
-                    command = { "ipython" },
-                    format = require("iron.fts.common").bracketed_paste,
-                  }
-                },
-                preffered ={
-                  -- python="ipython"
-                  -- clojure = "lein"
-                },
-              },
-                  }
-                    end,
-     },
+        "Vigemus/iron.nvim",
+        lazy = false,
+      },
     {
   "phaazon/hop.nvim",
   opts = {},
@@ -167,7 +146,13 @@ local plugins = {
     },
   },
 },
-  { "karb94/neoscroll.nvim", lazy = false, opts = {} },
+      {"karb94/neoscroll.nvim", lazy = false, opts = {} },
+  	  {"kana/vim-textobj-user"},
+  		{"kana/vim-textobj-line"},
+  		{"GCBallesteros/vim-textobj-hydrogen"},
+  		{"GCBallesteros/jupytext.vim"},
+      {"tpope/vim-repeat"},
+      {"pappasam/nvim-repl", lazy = false}
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",

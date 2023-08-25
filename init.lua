@@ -14,6 +14,16 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 -- vim.bo.commentstring = '-- %s'
+vim.cmd [[
+" Jupytext
+let g:jupytext_fmt = 'py'
+let g:jupytext_style = 'hydrogen'
+" repl
+let g:repl_filetype_commands = {
+  \ 'javascript': 'node',
+  \ 'python': 'ipython --no-autoindent',
+  \ }
+]]
 
 local bookmarks = {
     ['work'] = {
@@ -125,5 +135,5 @@ return {
         -- pattern = [[\b(KEYWORDS)\b]], -- match without the extra colon. You'll likely get false positives
       },
     },
-}
+        }
 
