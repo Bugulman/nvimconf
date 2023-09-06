@@ -54,11 +54,7 @@ local plugins = {
      "karb94/neoscroll.nvim",
      "junegunn/vim-slash",
      -- "renerocksai/telekasten.nvim",
-     "renerocksai/calendar-vim",
-     {
-          "ahmedkhalf/project.nvim",
-          lazy = false,
-     },
+     -- "renerocksai/calendar-vim",
      {
           "windwp/nvim-spectre",
           lazy = false,
@@ -113,38 +109,41 @@ local plugins = {
           provider = 'brave',
      },
      {
-        "Vigemus/iron.nvim",
-        lazy = false,
+        "rmagatti/auto-session",
+        opts = {
+          log_level = 'info',
+          auto_session_enable_last_session = false,
+          auto_session_root_dir = vim.fn.stdpath('data').."/sessions/",
+          auto_session_enabled = true,
+          auto_save_enabled = nil,
+          auto_restore_enabled = nil,
+          auto_session_suppress_dirs = nil,
+          auto_session_use_git_branch = nil,
+          -- the configs below are lua only
+          bypass_session_save_file_types = nil
+        },
+        event = "VeryLazy"
       },
     {
-  "phaazon/hop.nvim",
+        "rmagatti/session-lens",
+         event = "VeryLazy"
+      },
+
+    {
+{
+  "folke/flash.nvim",
+  event = "VeryLazy",
+  -- -@type Flash.Config
   opts = {},
+  -- stylua: ignore
   keys = {
-    {
-      "s",
-      function() require("hop").hint_words() end,
-      mode = { "n" },
-      desc = "Hop hint words",
-    },
-    {
-      "<S-s>",
-      function() require("hop").hint_lines() end,
-      mode = { "n" },
-      desc = "Hop hint lines",
-    },
-    {
-      "s",
-      function() require("hop").hint_words { extend_visual = true } end,
-      mode = { "v" },
-      desc = "Hop hint words",
-    },
-    {
-      "<S-s>",
-      function() require("hop").hint_lines { extend_visual = true } end,
-      mode = { "v" },
-      desc = "Hop hint lines",
-    },
+    { "s", mode = { "n", "o", "x" }, function() require("flash").jump() end, desc = "Flash" },
+    { "S", mode = { "n", "o", "x" }, function() require("flash").treesitter() end, desc = "Flash Treesitter" },
+    { "r", mode = "o", function() require("flash").remote() end, desc = "Remote Flash" },
+    { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
+    { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
   },
+}
 },
       {"karb94/neoscroll.nvim", lazy = false, opts = {} },
   	  {"kana/vim-textobj-user"},

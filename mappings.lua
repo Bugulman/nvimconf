@@ -16,7 +16,7 @@ M.general = {
     ["<C-c>"]      = { '"+y',                                                          desc = "copy to global buffer" },
     ["<p>"]        = { '"+p',                                                          desc = "paste from global buffer" },
     ["<m-o>"]      = { "<cmd>BrowseBookmarks<cr>",                                     desc = "browse_bookmarks" },
-    ["mm"]  = { "<cmd>BrowseInputSearch<cr>",                                   desc = "google search" },
+    ["mm"]         = { "<cmd>BrowseInputSearch<cr>",                                   desc = "google search" },
     ["<leader>q"]  = { ":q<cr>",                                                       desc = "close window" },
     ["<leader>fw"] = { ":Telescope live_grep<cr>",                                     desc = "find word" },
     ["ga"]         = { ":EasyAlign<cr>",                                               desc = "EasyAlign" },
@@ -24,6 +24,8 @@ M.general = {
     ["<m-Right>"]  = { ":vertical resize -1<cr>",                                      desc = "resize window less" },
     ["<m-Up>"]     = { ":resize +1<cr>",                                               desc = "resize window up" },
     ["<m-Down>"]   = { ":resize +1<cr>",                                               desc = "resize window down" },
+    ["<leader>fp"]   = { ":SearchSession<cr>",                                         desc = "SearchSession" },
+    ["<leader>fs"]   = { ":SessionSave<cr>",                                           desc = "Save session" },
   },
   v = {
     ["ga"] = { ":EasyAlign<cr>", desc = "EasyAlign" },
