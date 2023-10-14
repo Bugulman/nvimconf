@@ -1,4 +1,4 @@
-local overrides = require("custom.configs.overrides")
+local overrides = require "custom.configs.overrides"
 
 ---@type NvPluginSpec[]
 local plugins = {
@@ -25,7 +25,7 @@ local plugins = {
   -- override plugin configs
   {
     "williamboman/mason.nvim",
-    opts = overrides.mason
+    opts = overrides.mason,
   },
 
   {
@@ -38,8 +38,7 @@ local plugins = {
   },
   {
     "junegunn/vim-easy-align",
-          lazy = false,
-
+    lazy = false,
   },
   -- Install a plugin
   {
@@ -50,91 +49,90 @@ local plugins = {
     end,
   },
   "andymass/vim-matchup",
-     -- "folke/zen-mode.nvim",
-     "karb94/neoscroll.nvim",
-     "junegunn/vim-slash",
-     -- "renerocksai/telekasten.nvim",
-     -- "renerocksai/calendar-vim",
-     {
-          "windwp/nvim-spectre",
-          lazy = false,
-     },
-     "jmcantrell/vim-virtualenv",
-     -- "nanotee/sqls.nvim",
-     "SirVer/ultisnips",
-     "honza/vim-snippets",
-     "quangnguyen30192/cmp-nvim-ultisnips",
-     -- "vim-scripts/vim-autopep8",
-     {
-          "mg979/vim-visual-multi",
-          lazy = false,
-     },
-     {
-          "mbbill/undotree",
-          lazy = false,
-     },
-     {
-          "huggingface/hfcc.nvim",
-          opts = {
-               api_token = "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", -- cf Install paragraph
-               model = "bigcode/starcoder",                         -- can be a model ID or an http(s) endpoint
-               -- parameters that are added to the request body
-               query_params = {
-                    max_new_tokens = 256,
-                    temperature = 0.3,
-                    top_p = 0.5,
-                    stop_token = "<|endoftext|>",
-               },
-               -- set this if the model supports fill in the middle
-               fim = {
-                    enabled = true,
-                    prefix = "<fim_prefix>",
-                    middle = "<fim_middle>",
-                    suffix = "<fim_suffix>",
-               },
-          },
-          lazy = false,
-     },
-     {
-          "folke/todo-comments.nvim",
-          dependencies = { "nvim-lua/plenary.nvim" },
-          opts = {
-          },
-          lazy = false,
-     },
-     {
-          "lalitmee/browse.nvim",
-          dependencies = { "nvim-telescope/telescope.nvim" },
-          lazy = false,
-          provider = 'brave',
-     },
-     {
-        "rmagatti/auto-session",
-        opts = {
-          log_level = 'info',
-          auto_session_enable_last_session = false,
-          auto_session_root_dir = vim.fn.stdpath('data').."/sessions/",
-          auto_session_enabled = true,
-          auto_save_enabled = nil,
-          auto_restore_enabled = nil,
-          auto_session_suppress_dirs = nil,
-          auto_session_use_git_branch = nil,
-          -- the configs below are lua only
-          bypass_session_save_file_types = nil
-        },
-        event = "VeryLazy"
+  -- "folke/zen-mode.nvim",
+  "karb94/neoscroll.nvim",
+  "junegunn/vim-slash",
+  -- "renerocksai/telekasten.nvim",
+  -- "renerocksai/calendar-vim",
+  {
+    "windwp/nvim-spectre",
+    lazy = false,
+  },
+  "jmcantrell/vim-virtualenv",
+  -- "nanotee/sqls.nvim",
+  "SirVer/ultisnips",
+  "honza/vim-snippets",
+  "quangnguyen30192/cmp-nvim-ultisnips",
+  -- "vim-scripts/vim-autopep8",
+  {
+    "mg979/vim-visual-multi",
+    lazy = false,
+  },
+  {
+    "mbbill/undotree",
+    lazy = false,
+  },
+  {
+    "huggingface/hfcc.nvim",
+    opts = {
+      api_token = "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", -- cf Install paragraph
+      model = "bigcode/starcoder", -- can be a model ID or an http(s) endpoint
+      -- parameters that are added to the request body
+      query_params = {
+        max_new_tokens = 256,
+        temperature = 0.3,
+        top_p = 0.5,
+        stop_token = "<|endoftext|>",
       },
-    {
-        "rmagatti/session-lens",
-         event = "VeryLazy"
+      -- set this if the model supports fill in the middle
+      fim = {
+        enabled = true,
+        prefix = "<fim_prefix>",
+        middle = "<fim_middle>",
+        suffix = "<fim_suffix>",
       },
+    },
+    lazy = false,
+  },
+  {
+    "folke/todo-comments.nvim",
+    dependencies = { "nvim-lua/plenary.nvim" },
+    opts = {},
+    lazy = false,
+  },
+  {
+    "lalitmee/browse.nvim",
+    dependencies = { "nvim-telescope/telescope.nvim" },
+    lazy = false,
+    provider = "brave",
+  },
+  {
+    "rmagatti/auto-session",
+    opts = {
+      log_level = "info",
+      auto_session_enable_last_session = false,
+      auto_session_root_dir = vim.fn.stdpath "data" .. "/sessions/",
+      auto_session_enabled = true,
+      auto_save_enabled = nil,
+      auto_restore_enabled = nil,
+      auto_session_suppress_dirs = nil,
+      auto_session_use_git_branch = nil,
+      -- the configs below are lua only
+      bypass_session_save_file_types = nil,
+    },
+    event = "VeryLazy",
+  },
+  {
+    "rmagatti/session-lens",
+    event = "VeryLazy",
+  },
 
+  {
     {
-{
-  "folke/flash.nvim",
-  event = "VeryLazy",
-  -- -@type Flash.Config
-  opts = {},
+      "folke/flash.nvim",
+      event = "VeryLazy",
+      -- -@type Flash.Config
+      opts = {},
   -- stylua: ignore
   keys = {
     { "s", mode = { "n", "o", "x" }, function() require("flash").jump() end, desc = "Flash" },
@@ -143,15 +141,32 @@ local plugins = {
     { "R", mode = { "o", "x" }, function() require("flash").treesitter_search() end, desc = "Treesitter Search" },
     { "<c-s>", mode = { "c" }, function() require("flash").toggle() end, desc = "Toggle Flash Search" },
   },
-}
-},
-      {"karb94/neoscroll.nvim", lazy = false, opts = {} },
-  	  {"kana/vim-textobj-user"},
-  		{"kana/vim-textobj-line"},
-  		{"GCBallesteros/vim-textobj-hydrogen"},
-  		{"GCBallesteros/jupytext.vim"},
-      {"tpope/vim-repeat"},
-      {"pappasam/nvim-repl", lazy = false}
+    },
+  },
+  { "karb94/neoscroll.nvim", lazy = false, opts = {} },
+  { "kana/vim-textobj-user" },
+  { "kana/vim-textobj-line" },
+  { "GCBallesteros/vim-textobj-hydrogen" },
+  { "GCBallesteros/jupytext.vim" },
+  { "tpope/vim-repeat" },
+  { "pappasam/nvim-repl", lazy = false },
+  {
+    "kristijanhusak/vim-dadbod-ui",
+    dependencies = {
+      { "tpope/vim-dadbod", lazy = true },
+      { "kristijanhusak/vim-dadbod-completion", ft = { "sql", "mysql", "plsql" }, lazy = true },
+    },
+    cmd = {
+      "DBUI",
+      "DBUIToggle",
+      "DBUIAddConnection",
+      "DBUIFindBuffer",
+    },
+    init = function()
+      -- Your DBUI configuration
+      vim.g.db_ui_use_nerd_fonts = 1
+    end,
+  },
   -- To make a plugin not be loaded
   -- {
   --   "NvChad/nvim-colorizer.lua",
