@@ -5,6 +5,14 @@
 --   pattern = "*",
 --   command = "tabdo wincmd =",
 -- })
+--
+---- example file i.e lua/custom/init.lua
+-- load your options globals, autocmds here or anything .__.
+-- you can even override default options here (core/options.lua)
+
+vim.g.loaded_python3_provider = 1
+vim.g.python3_host_prog = "C:/Python311/python3"
+
 vim.api.nvim_create_autocmd("FileType", {
   group = vim.api.nvim_create_augroup("FixNavigatorCommentString", { clear = true }),
   callback = function(ev)
@@ -12,7 +20,10 @@ vim.api.nvim_create_autocmd("FileType", {
   end,
   pattern = { "inc", "data" },
 })
-
+-- настройка для работы с базами данных
+vim.cmd([[
+  autocmd FileType sql,mysql,plsql lua require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
+  ]])
 -- vim.bo.commentstring = '-- %s'
 vim.cmd [[
 " Jupytext

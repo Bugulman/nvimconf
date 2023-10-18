@@ -4,8 +4,8 @@ local M = {}
 M.general = {
   n = {
     [";"]          = { ":",                                                            "enter command mode", opts = { nowait = true } },
-    ["<leader>bb"] = { "<cmd>tabnew<cr>",                                              desc = "New tab" },
-    ["<leader>bn"] = { "<cmd>tabNext<cr>",                                              desc = "Tab next" },
+    ["<leader>nt"] = { "<cmd>tabnew<cr>",                                              desc = "New tab" },
+    ["<leader>nn"] = { "<cmd>tabNext<cr>",                                              desc = "Tab next" },
     ["<leader>i"]      = { ":UndotreeToggle<CR>",                                          silent = true, desc = "UNDOTREE" },
     ["<leader>x"]  = { ":bp<bar>sp<bar>bn<bar>bd!<Enter>",                             desc = "close file with buffer" },
     ["<leader>ft"] = { ":TodoTelescope<CR>",                                           desc = "todo_search" },
