@@ -73,26 +73,23 @@ local plugins = {
     lazy = false,
   },
   {
-    "huggingface/hfcc.nvim",
-    opts = {
-      api_token = "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", -- cf Install paragraph
-      model = "bigcode/starcoder", -- can be a model ID or an http(s) endpoint
-      -- parameters that are added to the request body
-      query_params = {
-        max_new_tokens = 256,
-        temperature = 0.3,
-        top_p = 0.5,
-        stop_token = "<|endoftext|>",
-      },
-      -- set this if the model supports fill in the middle
-      fim = {
-        enabled = true,
-        prefix = "<fim_prefix>",
-        middle = "<fim_middle>",
-        suffix = "<fim_suffix>",
-      },
-    },
-    lazy = false,
+    "Exafunction/codeium.vim",
+    event = "BufEnter",
+    config = function()
+      -- Change '<C-g>' here to any keycode you like.
+      vim.keymap.set("i", "<C-f>", function()
+        return vim.fn["codeium#Accept"]()
+      end, { expr = true })
+      vim.keymap.set("i", "<c-;>", function()
+        return vim.fn["codeium#CycleCompletions"](1)
+      end, { expr = true })
+      vim.keymap.set("i", "<c-,>", function()
+        return vim.fn["codeium#CycleCompletions"](-1)
+      end, { expr = true })
+      vim.keymap.set("i", "<c-x>", function()
+        return vim.fn["codeium#Clear"]()
+      end, { expr = true })
+    end,
   },
   {
     "folke/todo-comments.nvim",
